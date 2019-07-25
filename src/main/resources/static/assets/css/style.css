@@ -1,0 +1,235 @@
+:root {
+    --accent-color: #e67e22;
+    --info-color: #3498db;
+}
+
+#header-cover {
+    width: 100%;
+    background: url("../img/header-cover.jpg");
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+}
+
+nav#home-nav ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em 0em;
+}
+
+.link-nav {
+    text-decoration: none;
+    padding: 1em 1.5em;
+    color: #fff;
+    transition: 500ms all ease;
+}
+
+.link-nav:hover {
+    text-decoration: none;
+    color: #fff;
+    transform: scale(1.1)
+}
+
+.link-nav-strong {
+    font-weight: bold;
+}
+
+nav#home-nav ul li {
+    list-style: none;
+    border-right: 1px #fff solid;
+}
+nav#home-nav ul li:last-child {
+    border:0;
+}
+.filter-container {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-container .form-group {
+    margin: 1em 0.5em;
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+}
+.destacado-slide{
+    padding: 1em;
+}
+.destacado-img{
+    position: relative;
+}
+.destacado-type{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    border-radius: 0 0 0 1em;
+    background: #95a5a6;
+    color:#fff;
+}
+.destacado-venta{
+    clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    background: var(--accent-color);
+    position: absolute;
+    bottom: 0;
+    right:0;
+    padding: 0.5em 1em;
+    color:#fff;
+}
+
+.is-destacado{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5em;
+    background: #2d3436;
+    color:#fff;
+}
+.destacado-fav{
+    position: absolute;
+    top: 0;
+    left: 0.3em;
+    font-size: 1.3em;
+}
+.general-nav{
+    display: flex;
+    justify-content: space-between;
+    background: #2d3436;
+}
+.general-nav .brand img{
+    width: 70%;
+    padding: 0.5em;
+}
+
+.general-nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.general-nav ul li{
+    list-style: none;
+}
+.result-count-container{
+    font-size: 2em;
+    font-weight: 100;
+}
+.result-cover{
+    height: 500px;
+    background: url("../img/house1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.result-information small{
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+}
+.result-information{
+    justify-content: flex-end;
+    padding: 0.6em 1em;
+    color: #fff !important;
+}
+.result-similar-container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.result-similar{
+    padding: 0.5em 1em;
+    border: 1px solid #fff;
+    border-radius: 1em;
+    background: transparent;
+    margin: 0.5em 0.75em;
+}
+.result-similar.match{
+    background: #e67e22;
+}
+.principal-img{
+    position: relative;
+}
+.fav-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2em;
+    color: var(--danger);
+    padding: 0.6em;
+}
+.secondary-picks{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+.secondary-picks div{
+    padding: 0.2em;
+    flex: 1;
+}
+.secondary-picks div img{
+    padding: 0.2em 0em;
+}
+.profile-vendor{
+    display: flex;
+    flex-direction: row;
+    
+}
+.profile-vendor div:first-child img{
+    border-radius: 1em;
+    max-height: 100px;
+}
+.profile-vendor div:last-child{
+    margin-left: 0.5em;
+}
+.sale-options{
+    display: flex
+}
+.sale-option{
+    flex:1;
+    padding: 0.5em 1em;
+    border: 2px solid #2d3436;
+    color: #2d3436;
+    font-size: 1.2em;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: 300ms all ease-in;
+}
+.sale-option:hover{
+    background: #2d3436;
+    color: #fff;
+}
+.sale-option:nth-child(2){
+    border: 0;
+    border-top: 2px solid #2d3436;
+    border-bottom: 2px solid #2d3436;
+}
+/*BUTTONS STYLES*/
+
+.btn-accent {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.btn-accent:hover {
+    color: #fff;
+}
+/*TEXT COLOR STYLES*/
+.text-accent{
+    color:var(--accent-color);
+}
