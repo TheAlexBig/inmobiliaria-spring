@@ -14,8 +14,12 @@
     z-index: 1;
 }
 
-#nav{
- z-index: 5;
+.description {
+    position: absolute;
+}
+
+#nav {
+    z-index: 5;
 }
 .carousel-control-prev{
     z-index: 3;
@@ -36,13 +40,12 @@
     z-index: 2;
     top: 0;
     left: 0;
+    right: 0;
     position: absolute;
-    width: 100vw;
     height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
 
 }
+
 #carouselHouses{
     height: inherit;
 }
@@ -80,4 +83,46 @@
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+}
+
+.align-text-center{
+    text-align: center;
+}
+
+.slick-track::after{
+    padding-bottom: .5rem !important;
+}
+
+.salient-img{
+    position: relative;
+}
+.salient-type{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    border-radius: 0 0 0 1em;
+    background: #95a5a6;
+    color: #fff;
+}
+.text-accent{
+    color: #e67e22;
+}
+.salient-action{
+    clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    background: #e67e22;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    color: #fff;
+}
+.fav-format{
+    font-size: 1.3em;
+}
+.salient-fav{
+    position: absolute;
+    top: 0;
+    left: 0.3em;
+    text-shadow: 3px 6px #272634;
 }
