@@ -28,7 +28,14 @@ class QuoteImpl : QuoteRepository {
         result.forEach {
             found.add(it.toObject(Quote::class.java))
         }
-
         return found
+    }
+    override fun updateQuote(){
+        val instance = db.firestore
+        val future = instance!!.collection("sampledata").document("inspiration2")
+        val quote : HashMap<String, String> = hashMapOf("quote" to "AlexBig is Big 2", "author" to "AlexBig 2")
+        val result = future.update(quote as Map<String, Any>)
+        println("Successfully updated at: " + result.get().updateTime)
+
     }
 }

@@ -126,3 +126,14 @@
     left: 0.3em;
     text-shadow: 3px 6px #272634;
 }
+
+.black-fill{
+    background: #3c434b;
+}
+.navbar-image{
+    text-align: right;
+}
+.navbar-image-link img{
+    width: 60%;
+    padding: 0.5em;
+}

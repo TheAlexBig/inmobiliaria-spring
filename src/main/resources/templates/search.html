@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--CSS REQUIRED-->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap.min.css}"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/shards.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/main-style.css}">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark pt-0 pl-2 pb-0 black-fill">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse rr-flex" id="standardNavBar">
+            <ul class="navbar-nav align-content-between">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mi cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contáctanos</a>
+                </li>
+
+            </ul>
+
+            <div class="ml-auto pr-1 navbar-image">
+                <a class="brand navbar-image-link" href="#">
+                    <img th:src="@{/assets/img/brand.png}" alt="Inmobiliaria"></a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+<script type="text/javascript" th:src="@{/assets/js/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/popper.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/bootstrap.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/shards.min.js}"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script type="text/javascript" th:src="@{/assets/js/slick.min.js}"></script>
+</body>
+</html>

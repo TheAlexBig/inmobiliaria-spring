@@ -15,4 +15,7 @@ class QuoteService {
     fun searchQuote() : MutableList<Quote> {
         return quoteImpl.searchQuote()
     }
+    fun updateQuote(){
+        quoteImpl.updateQuote()
+    }
 }
