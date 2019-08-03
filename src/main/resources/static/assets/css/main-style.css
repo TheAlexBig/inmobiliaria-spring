@@ -137,3 +137,32 @@
     width: 60%;
     padding: 0.5em;
 }
+
+.small-image-link {
+    width: 80%;
+}
+
+.not-fixed{
+    position: relative !important;
+}
+
+.fit-height{
+    height: fit-content !important;
+}
+
+#menu-search{
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    background: #fbfbfb;
+}
+#map-holder{
+    position: sticky;
+    top: 0;
+    height: 87vh;
+}
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
