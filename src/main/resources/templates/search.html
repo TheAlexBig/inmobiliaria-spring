@@ -19,74 +19,81 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
-<header id="menu-search" class="position-sticky">
-    <nav  class="navbar navbar-expand-lg pt-0 pl-2 pb-0 navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse rr-flex" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mi cuenta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contáctanos</a>
-                </li>
+<!--nav bar -->
+<header id="menu-search" class="position-fixed">
+    <div class="row bg-light mr-1 ml-1">
+        <nav class="navbar navbar-expand-lg pt-0 pl-2 pb-0 navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse rr-flex" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mi cuenta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contáctanos</a>
+                    </li>
 
-            </ul>
+                </ul>
 
-            <!-- Social Icons -->
-            <ul class="header-social-icons navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fab fa-twitter"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.facebook.com/designrevision"><i
-                            class="fab fa-facebook"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://dribbble.com/hisk"><i class="fab fa-dribbble"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/designrevision"><i
-                            class="fab fa-github"></i></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="mr-3 ml-3">
-
-        <div class="row pb-2">
-            <div class="col-md-9">
-
-                <div class="flex-row justify-content-between">
-                    <h5 class="title mt-1 d-inline">Filtros&nbsp;&nbsp;</h5>
-                    <button class="btn btn-outline-primary">Ubicación</button>
-                    <button class="btn btn-outline-primary">Tipo de propiedad</button>
-                    <button class="btn btn-primary">+1 amb</button>
-                    <button class="btn btn-outline-primary">Cocheras</button>
-                    <button class="btn btn-outline-primary">Precio</button>
-                    <button class="btn btn-outline-primary">Superficie</button>
-                </div>
+                <!-- Social Icons -->
+                <ul class="header-social-icons navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/designrevision"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://dribbble.com/hisk"><i class="fab fa-dribbble"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/designrevision"><i
+                                class="fab fa-github"></i></a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-md-3">
-                <div class="custom-control custom-toggle my-2">
-                    <input type="checkbox" id="map-toggle" name="map-toggle" class="custom-control-input">
-                    <label class="custom-control-label" for="map-toggle">Mostrar mapa</label>
-                </div>
+        </nav>
+    </div>
+    <div class="row bg-light mr-3 ml-3 pb-2">
+        <div class="col-md-9">
+            <div class="flex-row justify-content-between">
+                <h5 class="title mt-1 d-inline">Filtros&nbsp;&nbsp;</h5>
+                <button class="btn btn-outline-primary">Ubicación</button>
+                <button class="btn btn-outline-primary">Tipo de propiedad</button>
+                <button class="btn btn-primary">+1 amb</button>
+                <button class="btn btn-outline-primary">Cocheras</button>
+                <button class="btn btn-outline-primary">Precio</button>
+                <button class="btn btn-outline-primary">Superficie</button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-toggle my-2">
+                <input type="checkbox" id="map-toggle" name="map-toggle" class="custom-control-input">
+                <label class="custom-control-label" for="map-toggle">Mostrar mapa</label>
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8"></div>
+        <div id="map" class="col-md-0 bg-light">
+        </div>
+    </div>
 </header>
+<!--/end nav bar -->
 <body>
-
+<br>
+<br>
+<br>
 <div class="container mt-4">
     <h3 class="title pt-2 pb-1 col-md-12 col-sm-12">Resultados de busqueda</h3>
     <div class="row">
@@ -327,7 +334,7 @@
             </div>
         </div>
         <div id="map-holder" class="col-md-0">
-            <div id="map">
+
         </div>
         </div>
     </div>
@@ -346,15 +353,18 @@
                                     <input type="number" id="min-price" class="form-control" placeholder="Min" aria-label="min-price" aria-describedby="basic-addon1">
                                     <input type="number" id="max-price" class="form-control" placeholder="Max" aria-label="max-price" aria-describedby="basic-addon2">
                                 </div>-->
-<script type="text/javascript" th:src="@{/assets/js/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/popper.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/bootstrap.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/shards.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/bootstrap.min.js}" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/shards.min.js}"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-<script type="text/javascript" th:src="@{/assets/js/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{assets/js/search/map-config.js}"></script>
 <script>
 
+    window.onload = function(){
+        initMap();
+    };
     function initMap() {
         var myLatLng = {lat: -25.363, lng: 131.044};
 
@@ -366,37 +376,11 @@
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            title: 'Hello World!'
+            title: 'Search results'
         });
     }
 
-    var fatherSearch = document.querySelector("#search-results");
-    var houseChild = document.querySelectorAll("#search-results > *");
-    var mapToggle = document.querySelector("#map-toggle");
-    var map = document.querySelector("#map-holder");
 
-    mapToggle.addEventListener('change', function(){
-        if(mapToggle.checked){
-            houseChild.forEach(function (e) {
-                e.classList.remove('col-md-4');
-                e.classList.add("col-md-6");
-            });
-            fatherSearch.classList.remove("col-md-12");
-            fatherSearch.classList.add("col-md-8");
-            map.classList.remove("col-md-0");
-            map.classList.add("col-md-4");
-        }
-        else{
-            houseChild.forEach(function (e) {
-                e.classList.remove('col-md-6');
-                e.classList.add("col-md-4");
-            });
-            fatherSearch.classList.remove("col-md-8");
-            fatherSearch.classList.add("col-md-12");
-            map.classList.remove("col-md-4");
-            map.classList.add("col-md-0");
-        }
-    });
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI&callback=initMap">

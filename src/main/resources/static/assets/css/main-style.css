@@ -151,18 +151,16 @@
 }
 
 #menu-search{
-    position: sticky;
     z-index: 10;
     top: 0;
-    background: #fbfbfb;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
 }
-#map-holder{
-    position: sticky;
-    top: 0;
-    height: 87vh;
+#menu-search > *{
+    max-width: 100vw;
 }
 #map {
-    width: 100%;
-    height: 100%;
     background-color: grey;
+    height: 92vh;
 }
