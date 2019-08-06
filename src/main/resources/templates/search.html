@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0"
           th:href="@{/assets/css/shards-dashboards.1.1.0.min.css}">
-    <link rel="stylesheet" th:href="@{/assets/css/extras.1.1.0.min.css}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
@@ -74,6 +73,26 @@
                 <button class="btn btn-outline-primary">Cocheras</button>
                 <button class="btn btn-outline-primary">Precio</button>
                 <button class="btn btn-outline-primary">Superficie</button>
+                <button id="price-test" type="button" class="btn btn-outline-primary">
+                    Popover on bottom
+                </button>
+                <div id="price-nav-popover" class="content hide">
+                    <div id="price-range-slider" >
+                        <input type="hidden" class='custom-slider-input' name="custom-slider-value-1">
+                        <input type="hidden" class='custom-slider-input' name="custom-slider-value-2">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-dollar-sign"></i></span>
+                        </div>
+                        <input type="number" id="min-price" class="form-control" placeholder="Min"
+                               aria-label="min-price"
+                               aria-describedby="basic-addon1">
+                        <input type="number" id="max-price" class="form-control" placeholder="Max"
+                               aria-label="max-price"
+                               aria-describedby="basic-addon2">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
@@ -336,35 +355,25 @@
         <div id="map-holder" class="col-md-0">
 
         </div>
-        </div>
     </div>
 </div>
 
 
 </body>
-<!-- <div id="price-range-slider">
-                                    <input type="hidden" class='custom-slider-input' name="custom-slider-value-1" >
-                                    <input type="hidden" class='custom-slider-input' name="custom-slider-value-2" >
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-dollar-sign"></i></span>
-                                    </div>
-                                    <input type="number" id="min-price" class="form-control" placeholder="Min" aria-label="min-price" aria-describedby="basic-addon1">
-                                    <input type="number" id="max-price" class="form-control" placeholder="Max" aria-label="max-price" aria-describedby="basic-addon2">
-                                </div>-->
+
 <script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/bootstrap.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/shards.min.js}"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-<script type="text/javascript" th:src="@{assets/js/search/map-config.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/jquery.sharrre.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/search/search-content.js}"></script>
 <script>
 
-    window.onload = function(){
+    window.onload = function () {
         initMap();
+        setPopoverMenu("price-test", "price-nav-popover");
     };
+
     function initMap() {
         var myLatLng = {lat: -25.363, lng: 131.044};
 
@@ -385,7 +394,7 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI&callback=initMap">
 </script>
-<!--<script type="text/javascript" th:src="@{/assets/js/slider-search.js}"></script>-->
+
 <!-- JavaScript -->
 
 </body>

@@ -164,3 +164,6 @@
     background-color: grey;
     height: 92vh;
 }
+.hide{
+    display: none;
+}
