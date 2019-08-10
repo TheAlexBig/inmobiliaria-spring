@@ -27,4 +27,9 @@ class MainController{
     fun search(model: Model): String{
         return "search"
     }
+
+    @RequestMapping("/description", method = [RequestMethod.GET,RequestMethod.POST])
+    fun description(model: Model): String{
+        return "description"
+    }
 }

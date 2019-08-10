@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.intro-items').slick({
+    $('#intro-items').slick({
         centerMode: true,
         centerPadding: '60px',
         slidesToShow: 4,
@@ -11,18 +11,9 @@ $(document).ready(function(){
                     arrows: false,
                     centerMode: true,
                     centerPadding: '40px',
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1
+                    slidesToShow: 4
                 }
             }
-        ]
+            ]
     });
 });

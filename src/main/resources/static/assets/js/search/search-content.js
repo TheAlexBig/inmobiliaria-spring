@@ -11,6 +11,7 @@ var minInput = document.getElementById('min-price');
 var maxInput = document.getElementById('max-price');
 var priceInputs = [minInput, maxInput];
 
+
 mapToggle.addEventListener('change', function () {
     if (mapToggle.checked) {
         houseChild.forEach(function (e) {
@@ -39,32 +40,31 @@ mapToggle.addEventListener('change', function () {
 
 
 
-stepSlider.noUiSlider.on('update', function (values, handle) {
-    priceInputs[handle].value = values[handle]
-});
-
 //Configuration of popOver
-function setPopoverMenu(idReference, htmlReference) {
+function setPopoverMenu(idReference, htmlReference, handlers) {
     createSlider();
-    var popoverElement = document.querySelector("#" + idReference);
-    var htmlToEmbed = $("#"+htmlReference).html();
-    $(popoverElement).popover({
-        placement: 'bottom',
-        html: true,
-        sanitize: false,
-        title: 'Precio',
-    }).click(function () {
-        var $this = $(this);
-        if ($this.toggleClass('active').hasClass('active')) {
-            $this.popover('show');
-            $('.popover-content')
-                .empty()
-                .append(htmlToEmbed);
-        } else {
-            htmlToEmbed.detach();
-            $this.popover('hide');
-        }
+    setSliderEvents();
+    var ref = $("#" + idReference);
+    var popup = $("#"+htmlReference);
+
+    popup.on("click", function (e) {
+         e.stopPropagation();
     });
+
+    ref.on("click",function (e) {
+        if(popup.is(":hidden")){
+           var popper = new Popper(ref,popup,{
+               placement: 'bottom'
+           });
+            popup.show("400");
+            popup.focus();
+        }
+        else{
+            popup.hide();
+        }
+        e.stopPropagation();
+    });
+
 }
 
 
@@ -116,19 +116,5 @@ function setSliderEvents() {
                 stepSlider.noUiSlider.set([null, this.value]);
                 break;
         }
-    });
-}
-
-function initMap() {
-    var myLatLng = {lat: -25.363, lng: 131.044};
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: myLatLng
-    });
-
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Search results'
     });
 }
