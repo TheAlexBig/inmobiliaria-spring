@@ -186,7 +186,7 @@
     width: 80px;
     position: absolute;
 }
-.title-help-tex-sm{
+.title-help-text-sm{
     font-size: 1.563rem;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .description-size{
-    height: 500px;
+    height: 480px;
 }
 .set-slicker{
     height: 72px;
