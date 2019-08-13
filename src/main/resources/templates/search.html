@@ -368,18 +368,22 @@
 <script type="text/javascript" th:src="@{/assets/js/general/shards.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/jquery.sharrre.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/search/search-content.js}"></script>
-<script>
+<script type="text/javascript" th:inline="javascript">
 
     function initMap() {
-        var myLatLng = {lat: -25.363, lng: 131.044};
+        var location = [[${location}]];
 
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4,
-            center: myLatLng
+            center: location.coordinate
         });
 
         var marker = new google.maps.Marker({
-            position: myLatLng,
+            zoom: 11,
+            position: {
+                lng: location.lng,
+                lat: location.lat
+            },
             map: map,
             title: 'Search results'
         });
@@ -403,11 +407,6 @@
 
 
     };
-
-
-
-
-
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI&callback=initMap">

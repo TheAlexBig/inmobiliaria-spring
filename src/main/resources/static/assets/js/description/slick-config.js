@@ -32,4 +32,5 @@ $(document).ready(function(){
         }
         carouselSlideDirection = 0;
     });
+
 });
