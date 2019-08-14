@@ -172,7 +172,7 @@
 #menu-search > *{
     width: 100%;
 }
-#search-container{
+.search-size{
     max-height: 86vh;
 }
 #search-map-results-holder{
