@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/com/root/inmobiliaria/InmobiliariaApplication
+web: java -cp target/classes:target/dependency
