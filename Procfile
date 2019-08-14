@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/inmobiliaria.war -Dserver.port=$PORT $JAR_OPT
+web: java $JAVA_OPTS -jar target/*.war
