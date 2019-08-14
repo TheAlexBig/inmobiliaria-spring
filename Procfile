@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/com/root/inmobiliaria/ServletInitializer
+web: java $JAVA_OPTS -jar target/inmobiliaria.war -Dserver.port=$PORT $JAR_OPT
