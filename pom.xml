@@ -11,7 +11,7 @@
     <groupId>com.roots.web</groupId>
     <artifactId>inmobiliaria</artifactId>
     <version>1.0.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>inmobiliaria</name>
     <description>Bienes y raices</description>
 
