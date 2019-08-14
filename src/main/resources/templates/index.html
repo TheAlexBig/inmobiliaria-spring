@@ -12,142 +12,129 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/shards.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/main-style.css}">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
 </head>
 <body>
-<div class="welcome d-flex justify-content-center flex-column">
-    <div class="welcome-container">
-        <div id="nav" class="row mr-2 ml-2">
-            <!-- Navigation -->
-            <nav class="navbar navbar-expand-lg navbar-dark pt-1 px-0">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavIndex"
-                        aria-controls="navbarNavIndex" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse rr-flex" id="navbarNavIndex">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mi cuenta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contáctanos</a>
-                        </li>
+<div class="welcome-container">
+    <nav id="navbar-index" class="navbar navbar-expand-lg navbar-dark pt-0 pl-1 pr-1">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavIndex"
+                aria-controls="navbarNavIndex" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse rr-flex" id="navbarNavIndex">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mi cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contáctanos</a>
+                </li>
 
-                    </ul>
+            </ul>
 
-                    <!-- Social Icons -->
-                    <ul class="header-social-icons navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.facebook.com/designrevision"><i
-                                    class="fab fa-facebook"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://dribbble.com/hisk"><i class="fab fa-dribbble"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/designrevision"><i
-                                    class="fab fa-github"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <!-- / Navigation -->
-        </div> <!-- .container -->
-
-        <!-- Inner Wrapper -->
-
-        <div class="inner-wrapper">
-            <div id="behind">
-                <div class="overlay"></div>
-                <div id="carouselHouses" class="carousel slide" data-ride="carousel" data-keyboard="false"
-                     data-interval="10000">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselHouses" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselHouses" data-slide-to="1"></li>
-                    </ol>
-                    <div id="carousel-content" class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" th:src="@{/assets/img/house1.jpg}" alt="First slide">
-                            <div class="d-flex flex-column justify-content-between text-muted text-center description">
-                                <div>
-                                    <i class="far fa-clone"></i> 2
-                                    <h6>Cuartos</h6>
-                                </div>
-                                <div>
-                                    <i class="fas fa-bed"></i> 3
-                                    <h6>Dormitorios</h6>
-                                </div>
-                                <div>
-                                    <i class="fas fa-bath"></i> 2
-                                    <h6>Baños</h6>
-                                </div>
+            <!-- Social Icons -->
+            <ul class="header-social-icons navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/designrevision"><i
+                            class="fab fa-facebook"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://dribbble.com/hisk"><i class="fab fa-dribbble"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/designrevision"><i
+                            class="fab fa-github"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Inner Wrapper -->
+    <div class="inner-wrapper">
+        <div id="carousel-holder" class="index-screen-mask">
+            <div class="overlay "></div>
+            <div id="carouselHouses" class="carousel slide" data-ride="carousel" data-keyboard="false"
+                 data-interval="10000">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselHouses" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselHouses" data-slide-to="1"></li>
+                </ol>
+                <div id="carousel-content" class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" th:src="@{/assets/img/house1.jpg}" alt="First slide">
+                        <div class="d-flex flex-column justify-content-between text-muted text-center description">
+                            <div>
+                                <i class="far fa-clone"></i> 2
+                                <h6>Cuartos</h6>
                             </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                            <div>
+                                <i class="fas fa-bed"></i> 3
+                                <h6>Dormitorios</h6>
+                            </div>
+                            <div>
+                                <i class="fas fa-bath"></i> 2
+                                <h6>Baños</h6>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" th:src="@{/assets/img/house2.jpg}" alt="Second slide">
-                            <div class="d-flex flex-column justify-content-between text-muted text-center description">
-                                <div>
-                                    <i class="far fa-clone"></i> 2
-                                    <h6>Cuartos</h6>
-                                </div>
-                                <div>
-                                    <i class="fas fa-bed"></i> 3
-                                    <h6>Dormitorios</h6>
-                                </div>
-                                <div>
-                                    <i class="fas fa-bath"></i> 2
-                                    <h6>Baños</h6>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-2">
-                                <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                            </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary" type="submit">Detalles</button>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselHouses" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselHouses" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" th:src="@{/assets/img/house2.jpg}" alt="Second slide">
+                        <div class="d-flex flex-column justify-content-between text-muted text-center description">
+                            <div>
+                                <i class="far fa-clone"></i> 2
+                                <h6>Cuartos</h6>
+                            </div>
+                            <div>
+                                <i class="fas fa-bed"></i> 3
+                                <h6>Dormitorios</h6>
+                            </div>
+                            <div>
+                                <i class="fas fa-bath"></i> 2
+                                <h6>Baños</h6>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="top" class="container mb-4">
-                <div class="row mb-auto">
-                    <div class="col-lg-4 col-md-4 col-sm-12 mr-auto ml-auto">
-                        <a class="brand m-2 p-2" href="#">
-                            <img th:src="@{/assets/img/brand.png}" class="mb-2" alt="Inmobiliaria"></a>
-                    </div>
-                </div>
-                <div class="row mt-3 mb-4">
-                    <div class="col-lg-12 col-md-12 col-sm-12 mt-auto">
-                        <div class="row">
-                            <form class="offset-lg-1 offset-md-1 col-lg-9 col-md-9 col-sm-12 row" th:action="@{/search}" method="post">
-                                <div class="col-lg-3 col-md-3 col-sm-12">
+        </div>
+        <div id="logo-image" class="index-screen-mask">
+            <div class="h-100 d-flex justify-content-center align-items-center">
+                <a class="brand center mr-auto ml-auto" href="#">
+                    <img th:src="@{/assets/img/brand.png}" class="mb-2" alt="Inmobiliaria"></a>
+            </div>
+        </div>
+        <div class="index-screen-mask same-level-index">
+            <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                <div class="row mt-auto w-100">
+                    <div class="offset-md-2 col-md-8 align-text-center">
+                        <form class="d-flex flex-row justify-content-center" th:action="@{/search}" method="post">
+                            <div class="row w-100 pb-md-5">
+                                <div class="col-md-3">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
                                         </div>
-                                    <select id="tipo" class="form-control custom-select">
-                                        <option>Comprar</option>
-                                        <option>Alquilar</option>
-                                    </select>
+                                        <select id="tipo" class="form-control custom-select">
+                                            <option>Comprar</option>
+                                            <option>Alquilar</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="col-md-3">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
@@ -171,233 +158,273 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="col-md-3">
                                     <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                    <input class="form-control" type="text" placeholder="Precio">
+                                        <a id="price-btn" class="btn btn-outline-primary w-100 text-white">Rango de precio</a>
+
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-12 justify-content-center align-content-center">
-                                    <button class="btn btn-orange" type="submit">Buscar<i class="fas fa-search pl-1"></i></button>
+                                <div class="col-md-3">
+                                    <button class="btn btn-outline-primary w-100 text-white" type="submit">Buscar<i
+                                            class="fas fa-search pl-1"></i></button>
                                 </div>
-                            </form>
-                            <div class="col-lg-2 col-md-2 col-sm-12 justify-content-center align-content-center">
-                                <button class="btn btn-info"><i class="fas fa-plus"></i> Publicar propiedad</button>
                             </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="w-100  d-flex flex-row flex-row align-items-end justify-content-end ">
+                            <button class="btn btn-info fit-height"><i class="fas fa-plus"></i> Publicar propiedad</button>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- / Inner Wrapper -->
-
-    </div>
-    <!--  Inner Wrapper 2 -->
-    <div class="container pt-3 mt-4 mb-4">
-        <h3 class="align-text-center">Inmuebles destacados</h3>
-    </div>
-    <div id="intro-items" class="mb-5">
-        <div class="card mr-2 ml-2" th:href="@{/description}">
-            <div class="salient-img">
-                <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                <div class="salient-action">
-                    <span>Renta</span>
-                </div>
-                <div class="salient-fav fav-format">
-                    <i class="fas fa-star text-warning"></i>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title text-accent">Colonia Escalon</h5><i class="fas fa-heart text-danger fav-format"></i>
-                </div>
-                <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                <hr>
-                <p>
-                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                </p>
-                <div class="d-flex justify-content-between text-muted text-center">
-                    <div>
-                        <i class="far fa-clone"></i> 2
-                        <h6>Cuartos</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bed"></i> 3
-                        <h6>Dormitorios</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bath"></i> 2
-                        <h6>Baños</h6>
+                <div class="row w-100">
+                    <div class="offset-md-11 col-md-1">
+                        <div class="house-arrow flex-row pb-3">
+                            <a class="clickable-link same-level-index" href="#carouselHouses" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="clickable-link same-level-index" href="#carouselHouses" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-center mt-2">
-                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                </div>
-            </div>
-        </div>
-        <div class="card mr-2 ml-2" th:href="@{/description}">
-            <div class="salient-img">
-                <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-                <div class="salient-action">
-                    <span>Renta</span>
-                </div>
-                <div class="salient-fav fav-format">
-                    <i class="fas fa-star text-warning"></i>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title text-accent">Colonia Escalon</h5><i class="fas fa-heart text-danger fav-format"></i>
-                </div>
-                <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                <hr>
-                <p>
-                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                </p>
-                <div class="d-flex justify-content-between text-muted text-center">
-                    <div>
-                        <i class="far fa-clone"></i> 2
-                        <h6>Cuartos</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bed"></i> 3
-                        <h6>Dormitorios</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bath"></i> 2
-                        <h6>Baños</h6>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-2">
-                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                </div>
-            </div>
-        </div>
-        <div class="card mr-2 ml-2" th:href="@{/description}">
-            <div class="salient-img">
-                <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
-                <div class="salient-action">
-                    <span>Renta</span>
-                </div>
-                <div class="salient-fav fav-format">
-                    <i class="fas fa-star text-warning"></i>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title text-accent">Colonia Escalon</h5><i class="fas fa-heart text-danger fav-format"></i>
-                </div>
-                <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                <hr>
-                <p>
-                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                </p>
-                <div class="d-flex justify-content-between text-muted text-center">
-                    <div>
-                        <i class="far fa-clone"></i> 2
-                        <h6>Cuartos</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bed"></i> 3
-                        <h6>Dormitorios</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bath"></i> 2
-                        <h6>Baños</h6>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-2">
-                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                </div>
-            </div>
-        </div>
-        <div class="card mr-2 ml-2" th:href="@{/description}">
-            <div class="salient-img">
-                <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                <div class="salient-action">
-                    <span>Renta</span>
-                </div>
-                <div class="salient-fav fav-format">
-                    <i class="fas fa-star text-warning"></i>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title text-accent">Colonia Escalon</h5><i class="fas fa-heart text-danger fav-format"></i>
-                </div>
-                <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                <hr>
-                <p>
-                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                </p>
-                <div class="d-flex justify-content-between text-muted text-center">
-                    <div>
-                        <i class="far fa-clone"></i> 2
-                        <h6>Cuartos</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bed"></i> 3
-                        <h6>Dormitorios</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bath"></i> 2
-                        <h6>Baños</h6>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-2">
-                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                </div>
-            </div>
-        </div>
-        <div class="card mr-2 ml-2" th:href="@{/description}">
-            <div class="salient-img">
-                <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-                <div class="salient-action">
-                    <span>Renta</span>
-                </div>
-                <div class="salient-fav fav-format">
-                    <i class="fas fa-star text-warning"></i>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title text-accent">Colonia Escalon</h5><i class="fas fa-heart text-danger fav-format"></i>
-                </div>
-                <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                <hr>
-                <p>
-                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                </p>
-                <div class="d-flex justify-content-between text-muted text-center">
-                    <div>
-                        <i class="far fa-clone"></i> 2
-                        <h6>Cuartos</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bed"></i> 3
-                        <h6>Dormitorios</h6>
-                    </div>
-                    <div>
-                        <i class="fas fa-bath"></i> 2
-                        <h6>Baños</h6>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mt-2">
-                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
-                </div>
+                <div class="row "></div>
             </div>
         </div>
     </div>
-    <!-- / Inner Wrapper 2-->
+    <!-- / Inner Wrapper -->
 </div>
+<!--  Inner Wrapper 2 -->
+<div id="intro-items" class="mt-2 mb-5">
+    <div class="card mr-2 ml-2" th:href="@{/description}">
+        <div class="salient-img">
+            <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+            <div class="salient-action">
+                <span>Renta</span>
+            </div>
+            <div class="salient-fav fav-format">
+                <i class="fas fa-star text-warning"></i>
+            </div>
+        </div>
 
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                    class="fas fa-heart text-danger fav-format"></i>
+            </div>
+            <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+            <hr>
+            <p>
+                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+            </p>
+            <div class="d-flex justify-content-between text-muted text-center">
+                <div>
+                    <i class="far fa-clone"></i> 2
+                    <h6>Cuartos</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bed"></i> 3
+                    <h6>Dormitorios</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i> 2
+                    <h6>Baños</h6>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mr-2 ml-2" th:href="@{/description}">
+        <div class="salient-img">
+            <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+            <div class="salient-action">
+                <span>Renta</span>
+            </div>
+            <div class="salient-fav fav-format">
+                <i class="fas fa-star text-warning"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                    class="fas fa-heart text-danger fav-format"></i>
+            </div>
+            <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+            <hr>
+            <p>
+                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+            </p>
+            <div class="d-flex justify-content-between text-muted text-center">
+                <div>
+                    <i class="far fa-clone"></i> 2
+                    <h6>Cuartos</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bed"></i> 3
+                    <h6>Dormitorios</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i> 2
+                    <h6>Baños</h6>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mr-2 ml-2" th:href="@{/description}">
+        <div class="salient-img">
+            <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
+            <div class="salient-action">
+                <span>Renta</span>
+            </div>
+            <div class="salient-fav fav-format">
+                <i class="fas fa-star text-warning"></i>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                    class="fas fa-heart text-danger fav-format"></i>
+            </div>
+            <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+            <hr>
+            <p>
+                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+            </p>
+            <div class="d-flex justify-content-between text-muted text-center">
+                <div>
+                    <i class="far fa-clone"></i> 2
+                    <h6>Cuartos</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bed"></i> 3
+                    <h6>Dormitorios</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i> 2
+                    <h6>Baños</h6>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mr-2 ml-2" th:href="@{/description}">
+        <div class="salient-img">
+            <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+            <div class="salient-action">
+                <span>Renta</span>
+            </div>
+            <div class="salient-fav fav-format">
+                <i class="fas fa-star text-warning"></i>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                    class="fas fa-heart text-danger fav-format"></i>
+            </div>
+            <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+            <hr>
+            <p>
+                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+            </p>
+            <div class="d-flex justify-content-between text-muted text-center">
+                <div>
+                    <i class="far fa-clone"></i> 2
+                    <h6>Cuartos</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bed"></i> 3
+                    <h6>Dormitorios</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i> 2
+                    <h6>Baños</h6>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mr-2 ml-2" th:href="@{/description}">
+        <div class="salient-img">
+            <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+            <div class="salient-action">
+                <span>Renta</span>
+            </div>
+            <div class="salient-fav fav-format">
+                <i class="fas fa-star text-warning"></i>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                    class="fas fa-heart text-danger fav-format"></i>
+            </div>
+            <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+            <hr>
+            <p>
+                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+            </p>
+            <div class="d-flex justify-content-between text-muted text-center">
+                <div>
+                    <i class="far fa-clone"></i> 2
+                    <h6>Cuartos</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bed"></i> 3
+                    <h6>Dormitorios</h6>
+                </div>
+                <div>
+                    <i class="fas fa-bath"></i> 2
+                    <h6>Baños</h6>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Inner Wrapper 2-->
+<div id="price-nav-popover" class="popover hide">
+    <h3 class="popover-header">Precio</h3>
+    <div class="popover-body">
+        <div id="price-range-slider">
+            <input type="hidden" class='custom-slider-input'
+                   name="custom-slider-value-1">
+            <input type="hidden" class='custom-slider-input'
+                   name="custom-slider-value-2">
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fas fa-dollar-sign"></i></span>
+            </div>
+            <input type="number" id="min-price" class="form-control"
+                   placeholder="Min"
+                   aria-label="min-price"
+                   aria-describedby="basic-addon1">
+            <input type="number" id="max-price" class="form-control"
+                   placeholder="Max"
+                   aria-label="max-price"
+                   aria-describedby="basic-addon2">
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>

@@ -1,26 +1,25 @@
 
 .inner-wrapper{
     z-index: 1;
-    height: 91vh;
+    height: 94vh;
+    width: 100%;
 }
 
-#behind>.overlay {
+.overlay {
     position: absolute;
     top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    left: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    z-index: 4;
 }
 
 .description {
     position: absolute;
 }
 
-#nav {
-    z-index: 5;
-}
+
 .carousel-control-prev{
     z-index: 3;
 }
@@ -28,22 +27,34 @@
 .carousel-control-next{
     z-index: 3;
 }
-
-#top{
-    z-index: 4;
+.index-screen-mask{
+    width: 100%;
+    height: inherit;
     position: absolute;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
 }
-#behind{
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
+#navbar-index {
+    z-index: 5;
     position: absolute;
-    height: 100vh;
+}
 
+#logo-image{
+    z-index: 3;
+}
+#logo-image{
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+.same-level-index{
+    z-index: 4;
+}
+#search-buttons>div{
+    bottom: 0;
+    left: 0;
+}
+#carousel-holder{
+    z-index: 2;
 }
 
 #carouselHouses{
@@ -70,12 +81,8 @@
 }
 
 .welcome-container{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: 94vh;
     top: 0;
     left: 0;
 }
@@ -91,6 +98,9 @@
 
 .slick-track::after{
     padding-bottom: .5rem !important;
+}
+.slick-track>*{
+    cursor: pointer;
 }
 
 .salient-img{
@@ -109,7 +119,7 @@
     position: absolute;
     top: 0;
     left: 0.3em;
-    text-shadow: 3px 6px #272634;
+    text-shadow: 3px 3px #f0ffef;
 }
 
 .salient-action{
@@ -173,16 +183,22 @@
     width: 100%;
 }
 .search-size{
-    max-height: 86vh;
+    max-height: 88vh;
+    overflow: hidden;
 }
 #search-map-results-holder{
     max-width: 100%;
 }
 #search-results-container{
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: 88vh;
+}
+#map-holder{
+    max-height: 88vh;
 }
 #map {
     background-color: grey;
+    overflow: hidden;
     height: 100%;
     width: 100%;
 }
@@ -222,3 +238,19 @@
     z-index: 9;
 }
 
+a.custom-card,
+a.custom-card:hover {
+    color: inherit;
+    text-decoration: none;
+}
+#intro-items>button.slick-prev.slick-arrow,
+#intro-items>button.slick-next.slick-arrow{
+    color: var(--primary);
+}
+
+#intro-items>button.slick-prev.slick-arrow{
+    left: 0;
+}
+#intro-items>button.slick-next.slick-arrow{
+    right: 0;
+}

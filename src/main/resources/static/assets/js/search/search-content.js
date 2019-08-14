@@ -6,11 +6,7 @@ var mapHolder = document.querySelector("#map-holder");
 var curtain = document.querySelector("#map");
 
 
-// Elements for input
-var stepSlider = document.getElementById('price-range-slider');
-var minInput = document.getElementById('min-price');
-var maxInput = document.getElementById('max-price');
-var priceInputs = [minInput, maxInput];
+
 
 
 mapToggle.addEventListener('change', function () {
@@ -84,7 +80,6 @@ function setPopoverMenu(element) {
     });
 
 }
-
 
 //Slider config
 function createSlider(option, sliderInputs, stepSlider) {
