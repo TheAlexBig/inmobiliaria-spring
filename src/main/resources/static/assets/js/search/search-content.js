@@ -1,11 +1,12 @@
 //Map-config
-var fatherSearch = document.querySelector("#search-results");
+var fatherSearch = document.querySelector("#search-results-container");
 var houseChild = document.querySelectorAll("#search-results > *");
 var mapToggle = document.querySelector("#map-toggle");
 var mapHolder = document.querySelector("#map-holder");
 var curtain = document.querySelector("#map");
 
 
+// Elements for input
 var stepSlider = document.getElementById('price-range-slider');
 var minInput = document.getElementById('min-price');
 var maxInput = document.getElementById('max-price');
@@ -20,8 +21,6 @@ mapToggle.addEventListener('change', function () {
         });
         fatherSearch.classList.remove("col-md-12");
         fatherSearch.classList.add("col-md-8");
-        curtain.classList.remove("col-md-0");
-        curtain.classList.add("col-md-4");
         mapHolder.classList.remove("col-md-0");
         mapHolder.classList.add("col-md-4");
     } else {
@@ -31,31 +30,44 @@ mapToggle.addEventListener('change', function () {
         });
         fatherSearch.classList.remove("col-md-8");
         fatherSearch.classList.add("col-md-12");
-        curtain.classList.remove("col-md-4");
-        curtain.classList.add("col-md-0");
         mapHolder.classList.remove("col-md-4");
         mapHolder.classList.add("col-md-0");
     }
 });
 
 
-
+var createdPopup = [];
 //Configuration of popOver
-function setPopoverMenu(idReference, htmlReference, handlers) {
-    createSlider();
-    setSliderEvents();
+function setPopoverMenu(element) {
+    var idReference = element.btn;
+    var htmlReference = document.getElementById(element.tooltip);
+    var sliderReference = document.getElementById(element.slider);
     var ref = $("#" + idReference);
-    var popup = $("#"+htmlReference);
+    var popup = $(htmlReference);
+    var referenceInputs = [];
+    element.inputs.forEach(function (value) {
+       referenceInputs.push(document.getElementById(value));
+    });
+
+    createSlider(element.sliderOption, referenceInputs, sliderReference);
+    setSliderEvents(element.sliderOption, referenceInputs, sliderReference);
+
 
     popup.on("click", function (e) {
-         e.stopPropagation();
+        //e.stopPropagation();
     });
+    createdPopup.push(popup);
 
     ref.on("click",function (e) {
         if(popup.is(":hidden")){
            var popper = new Popper(ref,popup,{
                placement: 'bottom'
            });
+            createdPopup.forEach(function (value) {
+                if(popup!=value){
+                value.hide();
+                }
+            });
             popup.show("400");
             popup.focus();
         }
@@ -65,56 +77,97 @@ function setPopoverMenu(idReference, htmlReference, handlers) {
         e.stopPropagation();
     });
 
+    window.addEventListener("click", function (ev) {
+        if (!htmlReference.contains(ev.target)){
+            popup.hide();
+        }
+    });
+
 }
 
 
 //Slider config
-function createSlider() {
-    $(stepSlider).customSlider({
-        start: [0, 1000],
-        tooltips: [true, true],
-        connect: true,
-        range: {
-            'min': 0,
-            '70%': 20000,
-            'max': 2000000
-        }
-    });
+function createSlider(option, sliderInputs, stepSlider) {
+    switch (option) {
+        case 1:
+            $(stepSlider).customSlider({
+                start: 1000,
+                tooltips: true,
+                connect: [true , false],
+                range: {
+                    'min': 0,
+                    '70%': 20000,
+                    'max': 120000
+                }
+            });
+            break;
+        case 2:
+            $(stepSlider).customSlider({
+                start: [0, 1000],
+                tooltips: [true, true],
+                connect: true,
+                range: {
+                    'min': 0,
+                    '70%': 20000,
+                    'max': 2000000
+                }
+            });
 
+            break;
+    }
     stepSlider.noUiSlider.on('update', function (values, handle) {
-        priceInputs[handle].value = values[handle]
+        sliderInputs[handle].value = values[handle]
     });
-
 }
 
-function setSliderEvents() {
-// Listen to keydown events on the input field.
-
-    minInput.addEventListener('change', function () {
-        stepSlider.noUiSlider.set([this.value, null]);
-    });
-
-    maxInput.addEventListener('change', function () {
-        stepSlider.noUiSlider.set([null, this.value]);
-    });
-
-    minInput.addEventListener('keydown', function (e) {
-        switch (e) {
-            case 13:
-            case 38:
-            case 40:
+function setSliderEvents(option, sliderInputs, stepSlider) {
+    switch (option) {
+        case 2:
+            var minInput = sliderInputs[0];
+            var maxInput = sliderInputs[1];
+            minInput.addEventListener('change', function () {
                 stepSlider.noUiSlider.set([this.value, null]);
-                break;
-        }
-    });
+            });
 
-    maxInput.addEventListener('keydown', function (e) {
-        switch (e) {
-            case 13:
-            case 38:
-            case 40:
+            maxInput.addEventListener('change', function () {
                 stepSlider.noUiSlider.set([null, this.value]);
-                break;
-        }
-    });
+            });
+
+            minInput.addEventListener('keydown', function (e) {
+                switch (e) {
+                    case 13:
+                    case 38:
+                    case 40:
+                        stepSlider.noUiSlider.set([this.value, null]);
+                        break;
+                }
+            });
+
+            maxInput.addEventListener('keydown', function (e) {
+                switch (e) {
+                    case 13:
+                    case 38:
+                    case 40:
+                        stepSlider.noUiSlider.set([null, this.value]);
+                        break;
+                }
+            });
+            break;
+        case 1:
+            var maxSingleInput = sliderInputs[0];
+            maxSingleInput.addEventListener('change', function () {
+                stepSlider.noUiSlider.set([this.value, null]);
+            });
+            maxSingleInput.addEventListener('keydown', function (e) {
+                switch (e) {
+                    case 13:
+                    case 38:
+                    case 40:
+                        stepSlider.noUiSlider.set([this.value, null]);
+                        break;
+                }
+            });
+            break;
+    }
+
 }

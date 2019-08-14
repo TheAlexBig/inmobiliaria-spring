@@ -137,23 +137,50 @@
                         <div class="row">
                             <form class="offset-lg-1 offset-md-1 col-lg-9 col-md-9 col-sm-12 row" th:action="@{/search}" method="post">
                                 <div class="col-lg-3 col-md-3 col-sm-12">
-                                    <select id="tipo" class="custom-select">
-                                        <option>Alquilar o Comprar</option>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                                        </div>
+                                    <select id="tipo" class="form-control custom-select">
                                         <option>Comprar</option>
                                         <option>Alquilar</option>
                                     </select>
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12">
-                                    <select id="ubicacion" class="custom-select">
-                                        <option>Ubicacion</option>
-                                        <option>La Libertad</option>
-                                    </select>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        </div>
+                                        <select id="ubicacion" class="form-control custom-select">
+                                            <option>Todo el país</option>
+                                            <option>Ahuachapán</option>
+                                            <option>Cabañas</option>
+                                            <option>Chalatenango</option>
+                                            <option>Cuscatlán</option>
+                                            <option>La Libertad</option>
+                                            <option>La Paz</option>
+                                            <option>La Unión</option>
+                                            <option>Morazán</option>
+                                            <option>San Miguel</option>
+                                            <option>San Salvador</option>
+                                            <option>San Vicente</option>
+                                            <option>Santa Ana</option>
+                                            <option>Sonsonate</option>
+                                            <option>Usulután</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
                                     <input class="form-control" type="text" placeholder="Precio">
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 justify-content-center align-content-center">
-                                    <button class="btn btn-orange" type="submit">Buscar<i class="fas fa-search"></i></button>
+                                    <button class="btn btn-orange" type="submit">Buscar<i class="fas fa-search pl-1"></i></button>
                                 </div>
                             </form>
                             <div class="col-lg-2 col-md-2 col-sm-12 justify-content-center align-content-center">
@@ -170,10 +197,10 @@
     </div>
     <!--  Inner Wrapper 2 -->
     <div class="container pt-3 mt-4 mb-4">
-        <h1 class="align-text-center">Inmuebles destacados</h1>
+        <h3 class="align-text-center">Inmuebles destacados</h3>
     </div>
     <div id="intro-items" class="mb-5">
-        <div class="card mr-2 ml-2">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
             <div class="salient-img">
                 <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
                 <div class="salient-action">
@@ -212,7 +239,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mr-2 ml-2">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
             <div class="salient-img">
                 <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
                 <div class="salient-action">
@@ -250,7 +277,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mr-2 ml-2">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
             <div class="salient-img">
                 <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
                 <div class="salient-action">
@@ -289,7 +316,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mr-2 ml-2">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
             <div class="salient-img">
                 <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
                 <div class="salient-action">
@@ -328,7 +355,7 @@
                 </div>
             </div>
         </div>
-        <div class="card mr-2 ml-2">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
             <div class="salient-img">
                 <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
                 <div class="salient-action">

@@ -1,9 +1,11 @@
 $(document).ready(function(){
+    //First slicker and carousel items
     var slickerDescription = $('#description-items');
     var carouselDescription = $('#preview-house');
     var targetPrev = $("#button-prev-carousel");
     var targetNext = $("#button-next-carousel");
     var carouselSlideDirection = 0;
+
 
     slickerDescription.slick({
         slidesToShow: 6,
@@ -32,5 +34,6 @@ $(document).ready(function(){
         }
         carouselSlideDirection = 0;
     });
+
 
 });

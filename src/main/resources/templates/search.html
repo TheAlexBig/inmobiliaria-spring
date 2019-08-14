@@ -19,9 +19,8 @@
 </head>
 <body>
 <!--nav bar -->
-<header id="menu-search" class="position-fixed">
-    <div class="bg-light pr-1 pl-1">
-        <nav class="navbar navbar-expand-lg pt-0 pl-2 pb-0 navbar-light bg-light">
+<header id="menu-search" class="bg-light">
+    <nav class="navbar navbar-expand-lg pt-0 pl-2 pb-0 navbar-light w-100">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,9 +60,8 @@
                     </li>
                 </ul>
             </div>
-        </nav>
-    </div>
-    <div class="row bg-light pr-3 pl-3 pb-2">
+    </nav>
+    <div class="row pr-3 pl-3 pb-2 ">
         <div class="col-md-9">
             <div class="flex-row justify-content-between">
                 <h5 class="title mt-1 d-inline">Filtros&nbsp;&nbsp;</h5>
@@ -71,8 +69,8 @@
                 <button class="btn btn-outline-primary">Tipo de propiedad</button>
                 <button class="btn btn-primary">+1 amb</button>
                 <button class="btn btn-outline-primary">Cocheras</button>
+                <!-- price filter  -->
                 <button id="price-btn" class="btn btn-outline-primary">Precio</button>
-                <button class="btn btn-outline-primary">Superficie</button>
                 <div id="price-nav-popover" class="popover hide">
                     <h3 class="popover-header">Precio</h3>
                     <div class="popover-body">
@@ -94,6 +92,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- / price filter -->
+                <!-- surface filter  -->
+                <button id="surface-btn" class="btn btn-outline-primary">Superficie</button>
+                <div id="surface-nav-popover" class="popover hide">
+                    <h3 class="popover-header">Superficie</h3>
+                    <div class="popover-body">
+                        <div id="surface-range-slider">
+                            <input type="hidden" class='custom-slider-input' name="custom-slider-value-1">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon-surface"><i
+                                        class="fas fa-dollar-sign"></i></span>
+                            </div>
+                            <input type="number" id="min-surface" class="form-control" placeholder="Min"
+                                   aria-label="min-surface"
+                                   aria-describedby="basic-addon-surface">
+                        </div>
+                    </div>
+                </div>
+                <!-- / surface filter  -->
             </div>
         </div>
         <div class="col-md-3">
@@ -103,263 +122,261 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-8"></div>
-        <div id="map" class="col-md-0 bg-light">
-        </div>
-    </div>
 </header>
 <!--/end nav bar -->
-<body>
-<br>
-<br>
-<br>
-<div class="container mt-4">
-    <h3 class="title pt-2 pb-1 col-md-12 col-sm-12">Resultados de busqueda</h3>
+
+<div class="container-fluid">
     <div class="row">
-        <div id="search-results" class="col-md-12 row">
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+        <div id="search-results-container" class="col-md-12">
+            <div class="container mt-4">
+                <h3 class="title pt-2 pb-1 col-md-12 col-sm-12">Resultados de busqueda</h3>
+                <div class="row">
+                    <div id="search-results" class="col-md-12 row">
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 ml-auto mr-auto">
-                <div class="card">
-                    <div class="salient-img">
-                        <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-                        <div class="salient-action">
-                            <span>Renta</span>
-                        </div>
-                        <div class="salient-fav fav-format">
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                    </div>
+                        <div class="col-md-4 mb-4 ml-auto mr-auto">
+                            <div class="card target-found" th:href="@{/description}">
+                                <div class="salient-img">
+                                    <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+                                    <div class="salient-action">
+                                        <span>Renta</span>
+                                    </div>
+                                    <div class="salient-fav fav-format">
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                </div>
 
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title text-accent">Colonia Escalon</h5><i
-                                class="fas fa-heart text-danger fav-format"></i>
-                        </div>
-                        <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
-                        <hr>
-                        <p>
-                            <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-                        </p>
-                        <div class="d-flex justify-content-between text-muted text-center">
-                            <div>
-                                <i class="far fa-clone"></i> 2
-                                <h6>Cuartos</h6>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                                            class="fas fa-heart text-danger fav-format"></i>
+                                    </div>
+                                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                                    <hr>
+                                    <p>
+                                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                                    </p>
+                                    <div class="d-flex justify-content-between text-muted text-center">
+                                        <div>
+                                            <i class="far fa-clone"></i> 2
+                                            <h6>Cuartos</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bed"></i> 3
+                                            <h6>Dormitorios</h6>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-bath"></i> 2
+                                            <h6>Baños</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-info">TEST</button>
                             </div>
-                            <div>
-                                <i class="fas fa-bed"></i> 3
-                                <h6>Dormitorios</h6>
-                            </div>
-                            <div>
-                                <i class="fas fa-bath"></i> 2
-                                <h6>Baños</h6>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="map-holder" class="col-md-0">
-
+        <div id="map-holder" class="col-md-0 bg-light p-0">
+            <div id="map"></div>
         </div>
     </div>
 </div>
-
-
 </body>
 
 <script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
@@ -372,10 +389,11 @@
 
     function initMap() {
         var location = [[${location}]];
-
+        var targetLocation = new google.maps.LatLng(location.lat, location.lng);
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: location.coordinate
+            zoom: 11,
+            center: targetLocation,
+            mapTypeId: 'roadmap'
         });
 
         var marker = new google.maps.Marker({
@@ -389,20 +407,19 @@
         });
     }
 
-    var filter = {
-        'reference' : [{'btn':'price-btn', 'slider' :'price-nav-popover'}]
-    };
+    var filter = [
+            {'btn': 'price-btn', 'tooltip': 'price-nav-popover',
+                'slider': 'price-range-slider','sliderOption': 2,
+                'inputs': ['min-price', 'max-price'] },
+            {'btn': 'surface-btn', 'tooltip': 'surface-nav-popover',
+                'slider':'surface-range-slider',  'sliderOption': 1,
+                'inputs': ['min-surface']
+            }]
+    ;
     window.onload = function () {
         initMap();
-        filter.reference.forEach(function (e) {
-            setPopoverMenu(e.btn, e.slider);
-        });
-        filter.reference.forEach(function (e) {
-            window.addEventListener("click", function (ev) {
-                if (!document.getElementById(e.slider).contains(ev.target)){
-                    $("#"+e.slider).hide();
-                }
-            });
+        filter.forEach(function (e) {
+            setPopoverMenu(e);
         });
 
 
