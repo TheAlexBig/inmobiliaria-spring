@@ -1,7 +1,8 @@
 
 .inner-wrapper{
     z-index: 1;
-    height: 94vh;
+    height: 90vh;
+    max-height: 90vh;
     width: 100%;
 }
 
@@ -69,20 +70,16 @@
 #carousel-content>.carousel-item>img{
     height: inherit;
 }
-
-#navbarNavIndex ul:first-child li {
-    list-style: none;
-    border-right: 1px #fff solid;
+/*
+#carousel-holder>#carouselHouses{
+    min-height: 100vh;
+    overflow: hidden;
+    box-shadow: none;
 }
-
-
-#navbarNavIndex ul:first-child li:last-child {
-    border-right: 0px;
-}
-
+*/
 .welcome-container{
     width: 100%;
-    height: 94vh;
+    height: 90vh;
     top: 0;
     left: 0;
 }
@@ -119,25 +116,25 @@
     position: absolute;
     top: 0;
     left: 0.3em;
-    text-shadow: 3px 3px #f0ffef;
+    text-shadow: 0 0.46875rem 2.1875rem rgba(0, 0, 0, 0.5), 0 0.9375rem 1.40625rem rgba(0, 0, 0, 0.05),
+    0 0.25rem 0.53125rem rgba(0,0,0,.1), 0 0.125rem 0.1875rem rgba(0,0,0,.1);
 }
 
-.salient-action{
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+.salient-action {
     background: #e67e22;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 5%;
+    right: 3%;
     padding: 0.5em 1em;
     color: #fff;
+    border-radius: 0;
 }
 
 .salient-type-description{
-    clip-path: polygon(0% 0%, 0% 100%, 75% 100%, 100% 50%, 75% 0%);
     background: #e67e22;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5%;
+    left: 3%;
     padding: 0.5em 1em;
     color: #fff;
 }
@@ -212,7 +209,10 @@
     position: absolute;
 }
 .title-help-text-sm{
-    font-size: 1.563rem;
+    font-size: 1.563rem !important;
+}
+.title-help-text-md{
+    font-size: 1.0rem !important;
 }
 
 .overflow-wrap {
@@ -253,4 +253,23 @@ a.custom-card:hover {
 }
 #intro-items>button.slick-next.slick-arrow{
     right: 0;
+}
+select.btn.btn-outline-primary.text-white>*{
+    color: #000;
+    background-color: #fff;
+}
+
+.translucent{
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+}
+
+
+ul#menu-top-index > li{
+    border-right: 1px #ffffff solid;
+}
+ul#menu-top-index> li:last-child  {
+    border-right: 0;
 }

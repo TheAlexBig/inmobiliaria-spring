@@ -65,14 +65,23 @@ $(document).ready(function(){
             start: [0, 1000],
             tooltips: [true, true],
             connect: true,
+            format: wNumb({
+                decimals: 0, // default is 2
+                thousand: ',', // thousand delimiter
+                prefix: '$ ' // gets appended after the number
+            }),
             range: {
                 'min': 0,
                 '70%': 20000,
                 'max': 2000000
             }
         });
+
         stepSlider.noUiSlider.on('update', function (values, handle) {
-            priceInputs[handle].value = values[handle]
+            values.forEach(function(v, i){
+                values[i] = v.toString().split(" ")[1].replace(/,/g, '');
+            });
+            priceInputs[handle].value = values[handle];
         });
     }
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<div th:remove="tag"  th:fragment="property">
+    <button class="btn btn-outline-primary">Ubicación</button>
+    <button class="btn btn-outline-primary">Tipo de propiedad</button>
+    <button class="btn btn-primary">+1 amb</button>
+    <button class="btn btn-outline-primary">Cocheras</button>
+    <!-- price filter  -->
+    <button id="price-btn" class="btn btn-outline-primary">Precio</button>
+    <div id="price-nav-popover" class="popover hide">
+        <h3 class="popover-header">Precio</h3>
+        <div class="popover-body">
+            <div id="price-range-slider">
+                <input type="hidden" class='custom-slider-input' name="custom-slider-value-1">
+                <input type="hidden" class='custom-slider-input' name="custom-slider-value-2">
+            </div>
+            <div class="d-flex flex-row align-items-center">
+                <div class="input-group input-group-seamless">
+                    <span class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    </span>
+                    <input type="number" id="min-price" class="form-control" placeholder="Min"
+                           aria-label="min-price"
+                           aria-describedby="basic-addon1">
+                </div>
+                <i class="fas fa-minus"></i>
+                <div class="input-group input-group-seamless">
+                    <span class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                    </span>
+                    <input type="number" id="max-price" class="form-control" placeholder="Max"
+                    aria-label="max-price"
+                    aria-describedby="basic-addon2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / price filter -->
+    <!-- surface filter  -->
+    <button id="surface-btn" class="btn btn-outline-primary">Superficie</button>
+    <div id="surface-nav-popover" class="popover hide">
+        <h3 class="popover-header">Superficie</h3>
+        <div class="popover-body">
+            <div id="surface-range-slider">
+                <input type="hidden" class='custom-slider-input' name="custom-slider-value-1">
+            </div>
+            <div class="input-group input-group-seamless">
+                    <span class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
+                    </span>
+                <input type="number" id="min-surface" class="form-control" placeholder="Min"
+                       aria-label="min-surface"
+                       fas fa-layer-group aria-describedby="basic-addon-surface">
+            </div>
+        </div>
+    </div>
+    <!-- / surface filter  -->
+</div>
+</html>

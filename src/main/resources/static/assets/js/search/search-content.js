@@ -12,8 +12,8 @@ var curtain = document.querySelector("#map");
 mapToggle.addEventListener('change', function () {
     if (mapToggle.checked) {
         houseChild.forEach(function (e) {
-            e.classList.remove('col-md-4');
-            e.classList.add("col-md-6");
+            e.classList.remove('col-md-3');
+            e.classList.add("col-md-4");
         });
         fatherSearch.classList.remove("col-md-12");
         fatherSearch.classList.add("col-md-8");
@@ -21,8 +21,8 @@ mapToggle.addEventListener('change', function () {
         mapHolder.classList.add("col-md-4");
     } else {
         houseChild.forEach(function (e) {
-            e.classList.remove('col-md-6');
-            e.classList.add("col-md-4");
+            e.classList.remove('col-md-4');
+            e.classList.add("col-md-3");
         });
         fatherSearch.classList.remove("col-md-8");
         fatherSearch.classList.add("col-md-12");
@@ -89,6 +89,11 @@ function createSlider(option, sliderInputs, stepSlider) {
                 start: 1000,
                 tooltips: true,
                 connect: [true , false],
+                format: wNumb({
+                    decimals: 0, // default is 2
+                    thousand: ',', // thousand delimiter
+                    prefix: 'm^2 ' // gets appended after the number
+                }),
                 range: {
                     'min': 0,
                     '70%': 20000,
@@ -101,6 +106,11 @@ function createSlider(option, sliderInputs, stepSlider) {
                 start: [0, 1000],
                 tooltips: [true, true],
                 connect: true,
+                format: wNumb({
+                    decimals: 0, // default is 2
+                    thousand: ',', // thousand delimiter
+                    prefix: '$ ' // gets appended after the number
+                }),
                 range: {
                     'min': 0,
                     '70%': 20000,
@@ -110,8 +120,12 @@ function createSlider(option, sliderInputs, stepSlider) {
 
             break;
     }
+
     stepSlider.noUiSlider.on('update', function (values, handle) {
-        sliderInputs[handle].value = values[handle]
+        values.forEach(function(v, i){
+            values[i] = v.toString().split(" ")[1].replace(/,/g, '');
+        });
+        sliderInputs[handle].value = values[handle];
     });
 }
 

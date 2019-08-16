@@ -1,13 +1,11 @@
 package com.root.inmobiliaria.controller
 
-import com.root.inmobiliaria.config.FirebaseSetUp
 import com.root.inmobiliaria.domain.Position
 import com.root.inmobiliaria.service.QuoteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 
@@ -21,14 +19,14 @@ class MainController{
     fun starUp(model: Model):String{
         //model.addAttribute("Quote",  quoteService.searchQuote())
         quoteService.searchQuote()
-        return "index"
+        return "client/index"
     }
 
     @RequestMapping("/search", method = [RequestMethod.GET,RequestMethod.POST])
     fun search(model: Model): String{
         val location = Position(13.651112, -89.280812)
         model.addAttribute("location", location)
-        return "search"
+        return "client/search"
     }
 
     @RequestMapping("/description", method = [RequestMethod.GET,RequestMethod.POST])
@@ -45,6 +43,6 @@ class MainController{
 
         model.addAttribute("location", location)
         model.addAttribute("points", points.toList())
-        return "description"
+        return "client/description"
     }
 }

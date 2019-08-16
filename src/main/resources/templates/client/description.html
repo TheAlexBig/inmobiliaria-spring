@@ -1,73 +1,16 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
-<head>
-    <title>Inmobiliaria</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--CSS REQUIRED-->
-    <link rel="icon" th:href="@{/assets/img/favicon.ico}">
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap.min.css}" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/shards.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/main-style.css}">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0"
-          th:href="@{/assets/css/shards-dashboards.1.1.0.min.css}">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-</head>
+<head th:replace="client/fragments/navbar::headerfiles"></head>
 <header>
     <div class="bg-light pr-1 pl-1">
-        <nav class="navbar navbar-expand-lg pt-0 pl-2 pb-0 navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse rr-flex" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mi cuenta</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contáctanos</a>
-                    </li>
-
-                </ul>
-
-                <!-- Social Icons -->
-                <ul class="header-social-icons navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://twitter.com/DesignRevision"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com/designrevision"><i
-                                class="fab fa-facebook"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://dribbble.com/hisk"><i class="fab fa-dribbble"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/designrevision"><i
-                                class="fab fa-github"></i></a>
-                    </li>
-                </ul>
-                <!-- / Social Icons -->
-            </div>
-        </nav>
+        <nav th:replace="client/fragments/navbar::commun"></nav>
     </div>
 </header>
 <body>
 <div class="container mt-4">
     <div id="name&fav">
-        <h2 class="title text-accent align-middle">Casa Residencial Las Piletas
+        <h2 class="title text-accent align-middle">Hermosa Casa Amueblada
             <i class="fas fa-star text-warning title-help-text-sm pl-1"></i></h2>
     </div>
     <span class="multiline-text">ID: SV001</span>
@@ -129,7 +72,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="salient-type-description">
+                        <div class="btn-sm btn-primary salient-type-description">
                             <span>Estreno</span>
                         </div>
                     </div>
@@ -403,8 +346,8 @@
             <div class="card" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                    <div class="salient-action">
-                        <span>Renta</span>
+                    <div class="btn btn-sm salient-action">
+                        <span>Alquiler</span>
                     </div>
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
@@ -413,10 +356,10 @@
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                        <h5 class="card-title text-accent">Recién remodelada</h5><i
                             class="fas fa-heart text-danger fav-format"></i>
                     </div>
-                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -443,8 +386,8 @@
             <div class="card" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-                    <div class="salient-action">
-                        <span>Renta</span>
+                    <div class="btn btn-sm salient-action">
+                        <span>Alquiler</span>
                     </div>
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
@@ -452,10 +395,10 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                        <h5 class="card-title text-accent">Increible vista a la ciudad</h5><i
                             class="fas fa-heart text-danger fav-format"></i>
                     </div>
-                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -482,8 +425,8 @@
             <div class="card" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
-                    <div class="salient-action">
-                        <span>Renta</span>
+                    <div class="btn btn-sm salient-action">
+                        <span>Alquiler</span>
                     </div>
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
@@ -492,10 +435,10 @@
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                        <h5 class="card-title text-accent">Diseño rústico</h5><i
                             class="fas fa-heart text-danger fav-format"></i>
                     </div>
-                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -522,8 +465,8 @@
             <div class="card" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                    <div class="salient-action">
-                        <span>Renta</span>
+                    <div class="btn btn-sm salient-action">
+                        <span>Alquiler</span>
                     </div>
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
@@ -532,10 +475,10 @@
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Colonia Escalon</h5><i
+                        <h5 class="card-title text-accent">Limitado al sitio web</h5><i
                             class="fas fa-heart text-danger fav-format"></i>
                     </div>
-                    <h6><i class="fas fa-dollar-sign"></i>1000.00</h6>
+                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -568,7 +511,35 @@
 </div>
 <br>
 <br>
-</body>
+<footer>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Inmobiliaria</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="header-social-icons navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i
+                                class="fab fa-facebook"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fab fa-dribbble"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i
+                                class="fab fa-github"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</footer>
+
 <script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/assets/js/general/bootstrap.min.js}" crossorigin="anonymous"></script>
@@ -626,4 +597,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI&callback=initMap">
 </script>
 
+
+</body>
 </html>
