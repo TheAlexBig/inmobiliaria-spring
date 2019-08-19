@@ -22,6 +22,11 @@ class MainController{
         return "client/index"
     }
 
+    @GetMapping("/contact-us")
+    fun contact(model: Model): String{
+        return "client/contact-us"
+    }
+
     @RequestMapping("/search", method = [RequestMethod.GET,RequestMethod.POST])
     fun search(model: Model): String{
         val location = Position(13.651112, -89.280812)

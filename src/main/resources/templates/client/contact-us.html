@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="client/fragments/navbar::headerfiles"></head>
+<header>
+    <div class="bg-light pr-1 pl-1">
+        <nav th:replace="client/fragments/navbar::commun"></nav>
+    </div>
+</header>
+<body>
+<div class="contact section-invert py-4">
+    <h3 class="section-title text-center m-5">Contáctanos</h3>
+    <div class="container py-4">
+        <div class="row justify-content-md-center px-4">
+            <div class="contact-form col-sm-12 col-md-10 col-lg-7 p-4 mb-4 card">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="contactFormFullName">Nombre completo</label>
+                                <input type="email" class="form-control" id="contactFormFullName" placeholder="Ingresa tu nombre completo">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="contactFormEmail">Dirección de correo</label>
+                                <input type="email" class="form-control" id="contactFormEmail" placeholder="Ingresa tu dirección de correo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputMessage1">Mensaje</label>
+                                <textarea id="exampleInputMessage1" class="form-control mb-4" rows="10" placeholder="Ingresa tu mensaje..." name="message"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary btn-pill d-flex ml-auto mr-auto" type="submit" value="Envia tu mensaje">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="client/fragments/footer::standard-footer"></div>
+
+<div th:replace="client/fragments/footer::script-files"></div>
+
+</body>
+</html>
