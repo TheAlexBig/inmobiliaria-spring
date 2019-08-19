@@ -82,35 +82,35 @@
                 <div class="col-md-12">
                     <div id="description-items">
                         <div data-target="#preview-house" th:data-slide-to="0" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse1.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse1.jpg}"
                                  alt="Card image cap 1">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="1" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse2.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse2.jpg}"
                                  alt="Card image cap 2">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="2" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse3.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse3.jpg}"
                                  alt="Card image cap 3">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="3" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse4.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse4.jpg}"
                                  alt="Card image cap 4">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="4" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse5.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse5.jpg}"
                                  alt="Card image cap 5">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="5" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse6.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse6.jpg}"
                                  alt="Card image cap 6">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="6" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse7.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse7.jpg}"
                                  alt="Card image cap 7">
                         </div>
                         <div data-target="#preview-house" th:data-slide-to="7" class="mr-2 ml-2 salient-img">
-                            <img class="set-slicker card-img-top" th:src="@{/assets/img/description/THouse8.jpg}"
+                            <img class="set-slicker card-img-top slider-square" th:src="@{/assets/img/description/THouse8.jpg}"
                                  alt="Card image cap 8">
                         </div>
                     </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="row" id="special-features-holder">
                 <div class="col-md-12">
-                    <h6>Características especiales<i class="fas fa-square text-info pl-1"></i></h6>
+                    <h6><i class="fas fa-square text-info pr-1"></i>Características especiales</h6>
                 </div>
                 <div class="col-md-12">
                     <div id="special-features" class="row">
@@ -162,7 +162,7 @@
             </div>
             <div class="row" id="nearby-description-holder">
                 <div class="col-md-12">
-                    <h6>Cerca<i class="fas fa-square text-info pl-1"></i></h6>
+                    <h6><i class="fas fa-square text-info pr-1"></i>Cerca</h6>
                 </div>
                 <div class="col-md-12 mt-1" id="nearby-description text-justify">
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
@@ -193,16 +193,18 @@
         </div>
         <!-- / Image and description -->
         <!-- Target side bar options -->
-        <div class="col-md-4">
+        <div class="col-md-4 d-flex flex-column">
             <div class="row">
-                <div id="price" class="col-md-10">
+                <div id="price" class="col-md-9">
                     <h4 class="title text-shuttle-gray">$550,000.-</h4>
                 </div>
-                <div id="favorite" class="col-md-2">
-                    <h4><i class="fas fa-heart text-danger "></i></h4>
+                <div id="favorite" class="col-md-3">
+                    <h4><i class="fas fa-heart text-danger"></i>
+                        <i class="fas fa-ban text-danger"></i>
+                    </h4>
                 </div>
             </div>
-            <div id="features" class="row align-text-center">
+            <div id="features" class="row align-text-center text-left offset-md-1">
                 <div class="col-md-6">
                     <i class="far fa-clone"></i> 2
                     <h6>Cuartos</h6>
@@ -242,21 +244,22 @@
             </div>
             <div class="row row-eq-height">
                 <div class="col-md-4">
-                    <img class="d-block w-100 h-100" th:src="@{/assets/img/avatar1.jpg}" th:alt="Name">
+                    <img class="d-block w-100 salesman-face" th:src="@{/assets/img/avatar1.jpg}" th:alt="Name">
                 </div>
-                <div class="col-md-8 flex-column align-items-end align-content-end text-center">
-                    <div class="flex-row align-items-center">
+                <div class="col-md-8 d-flex flex-column align-items-center justify-content-end">
+                    <div class="flex-row align-items-center text-center">
                         <i class="fas fa-star text-warning pl-1"></i>
                         <i class="fas fa-star text-warning pl-1"></i>
                         <i class="fas fa-star text-warning pl-1"></i>
                         <i class="fas fa-star text-warning pl-1"></i>
                         <i class="far fa-star text-warning pl-1"></i>
                     </div>
-                    <h5 class="text-shuttle-gray" id="user-name">Johnson Mateo</h5>
+                    <h5 class="text-shuttle-gray" id="user-name text-center">Johnson Mateo</h5>
                     <button class="btn btn-primary w-100 mb-1">Contactar</button>
                     <button class="btn btn-primary w-100">Agenda tu Cita</button>
                 </div>
             </div>
+
         </div>
         <!-- / Target side bar options -->
         <!-- Target map -->
@@ -356,8 +359,8 @@
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Recién remodelada</h5><i
-                            class="fas fa-heart text-danger fav-format"></i>
+                        <h5 class="card-title text-accent">Recién remodelada</h5>
+                        <i class="fas fa-heart text-danger fav-format"></i>
                     </div>
                     <h5><i class="fas fa-dollar-sign"></i>1000</h5>
                     <hr>
@@ -511,40 +514,11 @@
 </div>
 <br>
 <br>
-<footer>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Inmobiliaria</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="header-social-icons navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i
-                                class="fab fa-facebook"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fab fa-dribbble"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i
-                                class="fab fa-github"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</footer>
 
-<script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/bootstrap.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/shards.min.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/jquery.sharrre.min.js}"></script>
+<div th:replace="client/fragments/footer::standard-footer"></div>
+
+<div th:replace="client/fragments/footer::script-files"></div>
+
 <script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/description/slick-config.js}"></script>
 <script type="text/javascript" th:inline="javascript">

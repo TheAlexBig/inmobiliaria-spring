@@ -287,12 +287,8 @@
 </div>
 </body>
 
-<script type="text/javascript" th:src="@{/assets/js/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/wNumb.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/popper.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/bootstrap.min.js}" crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/shards.min.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/general/jquery.sharrre.min.js}"></script>
+<div th:replace="client/fragments/footer::script-files"></div>
+
 <script type="text/javascript" th:src="@{/assets/js/search/search-content.js}"></script>
 <script type="text/javascript" th:inline="javascript">
 

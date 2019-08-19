@@ -273,3 +273,12 @@ ul#menu-top-index > li{
 ul#menu-top-index> li:last-child  {
     border-right: 0;
 }
+.slider-square{
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;;
+    border-radius: 0 !important;;
+}
+.salesman-face{
+    min-width: 96px;
+    min-height: 144px;
+}
