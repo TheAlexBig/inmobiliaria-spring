@@ -282,3 +282,62 @@ ul#menu-top-index> li:last-child  {
     min-width: 96px;
     min-height: 144px;
 }
+
+.index-nav-title{
+    font-weight: bold !important;
+    text-transform: uppercase;
+    transition: transform .4s;
+}
+.index-nav-title:hover{
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+}
+.slick-prev {
+
+}
+.slick-next {
+    right: 100px !important;
+    background-color: var(--primary)  !important; /*to notice it, is white*/
+}
+#intro-items>button.slick-prev.slick-arrow{
+    left: 100px !important;
+    background-color: var(--primary)  !important; /*to notice it, is white*/
+}
+
+.paginator-center{
+    position: absolute;
+    height: 100%;
+}
+
+.prev-slick{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 5;
+}
+.next-slick{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 5;
+}
+
+.card div {
+    overflow: hidden;
+}
+.card div img{
+    transition: transform .4s;
+}
+.card:hover div img{
+    transform: scale(1.3);
+    transform-origin: 50% 50%;
+}
+.text-center-select {
+    text-align: center;
+    text-align-last: center;
+}
+
+
+
+
+

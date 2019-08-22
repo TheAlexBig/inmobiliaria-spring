@@ -72,15 +72,15 @@
                         <form class="d-flex flex-row justify-content-center" th:action="@{/search}" method="post">
                             <div class="row w-100 pb-md-5">
                                 <div class="col-md-3">
-                                    <select id="tipo"
-                                            class="btn btn-outline-primary text-white w-100">
+                                    <select id="type"
+                                            class="btn btn-outline-primary text-white w-100 text-center-select">
                                         <option>Comprar</option>
                                         <option>Alquilar</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select id="ubicacion"
-                                            class="btn btn-outline-primary text-white w-100">
+                                    <select id="departament"
+                                            class="btn btn-outline-primary text-white w-100 text-center-select">
                                         <option>Todo el país</option>
                                         <option>Ahuachapán</option>
                                         <option>Cabañas</option>
@@ -135,205 +135,227 @@
     <!-- / Inner Wrapper -->
 </div>
 <!--  Inner Wrapper 2 -->
-<div id="intro-items" class="mt-4 mb-5">
-    <div class="card mr-2 ml-2" th:href="@{/description}">
-        <div class="salient-img">
-            <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-            <div class="btn btn-sm btn btn-sm salient-action">
-                <span>Alquiler</span>
-            </div>
-            <div class="salient-fav fav-format">
-                <i class="fas fa-star text-warning"></i>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title text-accent">Amplia y recién construida</h5><i
-                    class="fas fa-heart text-danger fav-format"></i>
-            </div>
-            <h5><i class="fas fa-dollar-sign"></i>1000</h5>
-            <hr>
-            <p>
-                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-            </p>
-            <div class="d-flex justify-content-between text-muted text-center">
-                <div>
-                    <i class="far fa-clone"></i> 2
-                    <h6>Cuartos</h6>
-                </div>
-                <div>
-                    <i class="fas fa-bed"></i> 3
-                    <h6>Dormitorios</h6>
-                </div>
-                <div>
-                    <i class="fas fa-bath"></i> 2
-                    <h6>Baños</h6>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center mt-2">
-                <button class="btn btn-outline-primary" type="submit">Detalles</button>
-            </div>
-        </div>
+<div class="slider-box _clearfix position-sticky">
+    <div class="col-md-12 col-sm-0 paginator-center text-color text-center ">
+        <button class="btn btn-dark prev-slick ml-1"><i class="fas fa-arrow-left"></i></button>
+        <button class="btn btn-dark next-slick mr-1"><i class="fas fa-arrow-right"></i></button>
     </div>
-    <div class="card mr-2 ml-2" th:href="@{/description}">
-        <div class="salient-img">
-            <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-            <div class="btn btn-sm salient-action">
-                <span>Alquiler</span>
-            </div>
-            <div class="salient-fav fav-format">
-                <i class="fas fa-star text-warning"></i>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title text-accent">Recién remodelada</h5><i
-                    class="fas fa-heart text-danger fav-format"></i>
-            </div>
-            <h5><i class="fas fa-dollar-sign"></i>1000</h5>
-            <hr>
-            <p>
-                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-            </p>
-            <div class="d-flex justify-content-between text-muted text-center">
-                <div>
-                    <i class="far fa-clone"></i> 2
-                    <h6>Cuartos</h6>
+    <div id="intro-items" class="mt-4 mb-5">
+        <div class="card mr-2 ml-2" th:href="@{/description}">
+            <div class="salient-img">
+                <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+                <div class="btn btn-sm btn btn-sm salient-action">
+                    <span>Alquiler</span>
                 </div>
-                <div>
-                    <i class="fas fa-bed"></i> 3
-                    <h6>Dormitorios</h6>
-                </div>
-                <div>
-                    <i class="fas fa-bath"></i> 2
-                    <h6>Baños</h6>
+                <div class="salient-fav fav-format">
+                    <i class="fas fa-star text-warning"></i>
                 </div>
             </div>
-            <div class="d-flex justify-content-center mt-2">
-                <button class="btn btn-outline-primary" type="submit">Detalles</button>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-accent">Diseño rústico</h5>
+                    <div class="w-25 d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
+                </div>
+                <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                <hr>
+                <p>
+                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                </p>
+                <div class="d-flex justify-content-between text-muted text-center">
+                    <div>
+                        <i class="far fa-clone"></i> 2
+                        <h6>Cuartos</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bed"></i> 3
+                        <h6>Dormitorios</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bath"></i> 2
+                        <h6>Baños</h6>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card mr-2 ml-2" th:href="@{/description}">
-        <div class="salient-img">
-            <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
-            <div class="btn btn-sm salient-action">
-                <span>Alquiler</span>
+        <div class="card mr-2 ml-2" th:href="@{/description}">
+            <div class="salient-img">
+                <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+                <div class="btn btn-sm salient-action">
+                    <span>Alquiler</span>
+                </div>
+                <div class="salient-fav fav-format">
+                    <i class="fas fa-star text-warning"></i>
+                </div>
             </div>
-            <div class="salient-fav fav-format">
-                <i class="fas fa-star text-warning"></i>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-accent">Amplia y recién construida</h5>
+                    <div class="w-25 d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
+                </div>
+                <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                <hr>
+                <p>
+                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                </p>
+                <div class="d-flex justify-content-between text-muted text-center">
+                    <div>
+                        <i class="far fa-clone"></i> 2
+                        <h6>Cuartos</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bed"></i> 3
+                        <h6>Dormitorios</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bath"></i> 2
+                        <h6>Baños</h6>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                </div>
             </div>
         </div>
+        <div class="card mr-2 ml-2" th:href="@{/description}">
+            <div class="salient-img">
+                <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
+                <div class="btn btn-sm salient-action">
+                    <span>Alquiler</span>
+                </div>
+                <div class="salient-fav fav-format">
+                    <i class="fas fa-star text-warning"></i>
+                </div>
+            </div>
 
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title text-accent">Se necesita inquilino, rápido</h5><i
-                    class="fas fa-heart text-danger fav-format"></i>
-            </div>
-            <h5><i class="fas fa-dollar-sign"></i>1000</h5>
-            <hr>
-            <p>
-                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-            </p>
-            <div class="d-flex justify-content-between text-muted text-center">
-                <div>
-                    <i class="far fa-clone"></i> 2
-                    <h6>Cuartos</h6>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-accent">Exculsiva del sitio web</h5>
+                    <div class="w-25 d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bed"></i> 3
-                    <h6>Dormitorios</h6>
+                <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                <hr>
+                <p>
+                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                </p>
+                <div class="d-flex justify-content-between text-muted text-center">
+                    <div>
+                        <i class="far fa-clone"></i> 2
+                        <h6>Cuartos</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bed"></i> 3
+                        <h6>Dormitorios</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bath"></i> 2
+                        <h6>Baños</h6>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bath"></i> 2
-                    <h6>Baños</h6>
+                <div class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center mt-2">
-                <button class="btn btn-outline-primary" type="submit">Detalles</button>
             </div>
         </div>
-    </div>
-    <div class="card mr-2 ml-2" th:href="@{/description}">
-        <div class="salient-img">
-            <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-            <div class="btn btn-sm salient-action">
-                <span>Alquiler</span>
+        <div class="card mr-2 ml-2" th:href="@{/description}">
+            <div class="salient-img">
+                <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
+                <div class="btn btn-sm salient-action">
+                    <span>Alquiler</span>
+                </div>
+                <div class="salient-fav fav-format">
+                    <i class="fas fa-star text-warning"></i>
+                </div>
             </div>
-            <div class="salient-fav fav-format">
-                <i class="fas fa-star text-warning"></i>
-            </div>
-        </div>
 
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title text-accent">Exclusiva del sitio web</h5><i
-                    class="fas fa-heart text-danger fav-format"></i>
-            </div>
-            <h5><i class="fas fa-dollar-sign"></i>1000</h5>
-            <hr>
-            <p>
-                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-            </p>
-            <div class="d-flex justify-content-between text-muted text-center">
-                <div>
-                    <i class="far fa-clone"></i> 2
-                    <h6>Cuartos</h6>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-accent">Removida a finales de septiembre</h5>
+                    <div class="w-25 d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bed"></i> 3
-                    <h6>Dormitorios</h6>
+                <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                <hr>
+                <p>
+                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                </p>
+                <div class="d-flex justify-content-between text-muted text-center">
+                    <div>
+                        <i class="far fa-clone"></i> 2
+                        <h6>Cuartos</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bed"></i> 3
+                        <h6>Dormitorios</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bath"></i> 2
+                        <h6>Baños</h6>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bath"></i> 2
-                    <h6>Baños</h6>
+                <div class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center mt-2">
-                <button class="btn btn-outline-primary" type="submit">Detalles</button>
             </div>
         </div>
-    </div>
-    <div class="card mr-2 ml-2" th:href="@{/description}">
-        <div class="salient-img">
-            <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
-            <div class="btn btn-sm salient-action">
-                <span>Alquiler</span>
+        <div class="card mr-2 ml-2" th:href="@{/description}">
+            <div class="salient-img">
+                <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+                <div class="btn btn-sm salient-action">
+                    <span>Alquiler</span>
+                </div>
+                <div class="salient-fav fav-format">
+                    <i class="fas fa-star text-warning"></i>
+                </div>
             </div>
-            <div class="salient-fav fav-format">
-                <i class="fas fa-star text-warning"></i>
-            </div>
-        </div>
 
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title text-accent">Diseño rústico</h5><i
-                    class="fas fa-heart text-danger fav-format"></i>
-            </div>
-            <h5><i class="fas fa-dollar-sign"></i>1000</h5>
-            <hr>
-            <p>
-                <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
-            </p>
-            <div class="d-flex justify-content-between text-muted text-center">
-                <div>
-                    <i class="far fa-clone"></i> 2
-                    <h6>Cuartos</h6>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title text-accent">Recién remodelada</h5>
+                    <div class="w-25 d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bed"></i> 3
-                    <h6>Dormitorios</h6>
+                <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                <hr>
+                <p>
+                    <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                </p>
+                <div class="d-flex justify-content-between text-muted text-center">
+                    <div>
+                        <i class="far fa-clone"></i> 2
+                        <h6>Cuartos</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bed"></i> 3
+                        <h6>Dormitorios</h6>
+                    </div>
+                    <div>
+                        <i class="fas fa-bath"></i> 2
+                        <h6>Baños</h6>
+                    </div>
                 </div>
-                <div>
-                    <i class="fas fa-bath"></i> 2
-                    <h6>Baños</h6>
+                <div class="d-flex justify-content-center mt-2">
+                    <button class="btn btn-outline-primary" type="submit">Detalles</button>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center mt-2">
-                <button class="btn btn-outline-primary" type="submit">Detalles</button>
             </div>
         </div>
     </div>
+
 </div>
 <!-- / Inner Wrapper 2-->
 
@@ -344,7 +366,7 @@
 <div th:replace="client/fragments/footer::script-files"></div>
 
 <script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/index/slick-config.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/index/visual-config.js}"></script>
 
 </body>
 </html>
