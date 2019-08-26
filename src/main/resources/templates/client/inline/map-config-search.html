@@ -1,26 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <script type="text/javascript" th:inline="javascript" th:fragment="map-javascript">
-    function initMap() {
-        var location = [[${location}]];
-        var targetLocation = new google.maps.LatLng(location.lat, location.lng);
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 11,
-            center: targetLocation,
-            mapTypeId: 'roadmap'
-        });
-
-        var marker = new google.maps.Marker({
-            zoom: 11,
-            position: {
-                lng: location.lng,
-                lat: location.lat
-            },
-            map: map,
-            title: 'Search results'
-        });
-    }
-
     var filter = [
         {'btn': 'price-btn', 'tooltip': 'price-nav-popover',
             'slider': 'price-range-slider','sliderOption': 2,
@@ -28,7 +8,55 @@
         {'btn': 'surface-btn', 'tooltip': 'surface-nav-popover',
             'slider':'surface-range-slider',  'sliderOption': 1,
             'inputs': ['min-surface']
-        }]
-    ;
+        }];
+
+    function initMap() {
+        var nearbyMap = [[${points}]];
+        var points = nearbyMap.length;
+        var averageLng = 0;
+        var averageLat = 0;
+        var scaledSizeMarker = new google.maps.Size(35, 35);
+        var originMarker = new google.maps.Point(0, 0);
+        var anchorMarker = new google.maps.Point(0,44);
+        var markerIcon = {
+            url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+            scaledSize: scaledSizeMarker,
+            origin: originMarker,
+            anchor: anchorMarker
+        };
+
+        if(points>0){
+            nearbyMap.forEach(function (p) {
+                averageLng += p.lng;
+                averageLat += p.lat;
+            });
+            var targetLocation = new google.maps.LatLng(averageLat/points, averageLng/points);
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: targetLocation,
+                mapTypeId: 'roadmap'
+            });
+
+            nearbyMap.forEach(function (p) {
+                var markerLatLng = new google.maps.LatLng(p.lat, p.lng);
+                new google.maps.Marker({
+                    map: map,
+                    animation: google.maps.Animation.DROP,
+                    position: markerLatLng,
+                    icon: markerIcon
+                });
+            });
+        }
+    }
+    $( document ).ready(function() {
+        initMap();
+        filter.forEach(function (e) {
+            setPopoverMenu(e);
+        });
+        if(mapToggle.checked){
+            changeSearchMapState();
+        }
+    });
 </script>
 </html>

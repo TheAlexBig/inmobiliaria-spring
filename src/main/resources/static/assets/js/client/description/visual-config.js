@@ -4,6 +4,7 @@ $(document).ready(function(){
     var carouselDescription = $('#preview-house');
     var targetPrev = $("#button-prev-carousel");
     var targetNext = $("#button-next-carousel");
+    var slickerRecommended = $("#recommended");
     var carouselSlideDirection = 0;
 
 
@@ -12,6 +13,14 @@ $(document).ready(function(){
         slidesToScroll: 1,
         arrows: false,
         dots: false
+    });
+
+    slickerRecommended.slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 4,
+        prevArrow: $('.prev-slick'),
+        nextArrow: $('.next-slick')
     });
 
     targetPrev.on('click', function (ev) {

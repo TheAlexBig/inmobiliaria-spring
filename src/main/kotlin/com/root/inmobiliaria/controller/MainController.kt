@@ -29,8 +29,18 @@ class MainController{
 
     @RequestMapping("/search", method = [RequestMethod.GET,RequestMethod.POST])
     fun search(model: Model): String{
-        val location = Position(13.651112, -89.280812, "1")
+        val location = Position(13.651112, -89.280812, "ubicación")
+        val points : MutableList<Position> = ArrayList<Position>()
+        points.add(Position(13.671660,-89.278015,"hospital"))
+        points.add(Position(13.456558, -89.043058, "aeropuerto"))
+        points.add(Position(13.651044, -89.280783, "gimnasio"))
+        points.add(Position(13.651612, -89.280708, "escuela"))
+        points.add(Position(13.671881, -89.283397, "estacion de bus"))
+        points.add(Position(13.647980, -89.265698, "libreria"))
+
+
         model.addAttribute("location", location)
+        model.addAttribute("points", points.toList())
         return "client/search"
     }
 

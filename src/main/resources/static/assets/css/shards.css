@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600|Roboto+Mono);
+@import url(https://fonts.googleapis.com/css?family=Raleway&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap);
 
 :root {
     --blue: var(--primary);
@@ -29,8 +31,8 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-family-monospace: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    --font-family-sans-serif: 'Raleway', sans-serif;;
+    --font-family-monospace: 'Barlow Semi Condensed', sans-serif;
 }
 
 @media (max-width: 575.98px) {
@@ -71,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: .75rem;
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:  'Raleway', sans-serif;;
     font-weight: 400;
     color: #212529
 }
@@ -183,7 +185,7 @@ hr {
 }
 
 code, kbd, pre, samp {
-    font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 code {
@@ -691,7 +693,7 @@ form label:hover {
 
 .btn {
     font-weight: 300;
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:  'Raleway', sans-serif;;
     border: 1px solid transparent;
     padding: .75rem 1.25rem;
     font-size: .875rem;
@@ -2120,7 +2122,7 @@ i.material-icons {
 
 .nav {
     font-size: .875rem;
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+    font-family:  'Raleway', sans-serif;
 }
 
 .nav-link {
@@ -2641,7 +2643,7 @@ i.material-icons {
     padding-bottom: .625rem;
     margin-right: 1.5rem;
     font-size: 1rem;
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:  'Raleway', sans-serif;;
     font-weight: 400
 }
 
@@ -2821,7 +2823,7 @@ i.material-icons {
 }
 
 .card-body {
-    padding: 1.875rem
+    padding: 1.1rem
 }
 
 .card-body > p:last-child {
@@ -2838,7 +2840,7 @@ i.material-icons {
 }
 
 .card-link {
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+    font-family:  'Raleway', sans-serif;
 }
 
 .card-link + .card-link {
@@ -2995,7 +2997,7 @@ i.material-icons {
     padding-left: 0;
     list-style: none;
     border-radius: .375rem;
-    font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:  'Raleway', sans-serif;;
     font-size: .875rem
 }
 
@@ -3083,7 +3085,7 @@ i.material-icons {
     padding: .375rem .5rem;
     font-size: 75%;
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;;
     color: #fff;
     border-radius: .375rem
 }
@@ -3700,7 +3702,7 @@ a.list-group-item-dark.active, button.list-group-item-dark.active {
 .tooltip {
     z-index: 1070;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;;
     font-style: normal;
     font-weight: 300;
     line-height: 1.5;
@@ -3784,7 +3786,7 @@ a.list-group-item-dark.active, button.list-group-item-dark.active {
 .popover {
     z-index: 1060;
     max-width: 276px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;;
     font-style: normal;
     font-weight: 300;
     line-height: 1.5;
@@ -4688,7 +4690,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 }
 
 .bg-light {
-    background-color: #e9ecef !important
+    background-color:#fbfbfb!important
 }
 
 .bg-light.card .card-body, .bg-light.card .card-footer, .bg-light.card .card-header, .bg-light.card .card-title {
@@ -4796,7 +4798,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .text-monospace {
-    font-family: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .font-weight-normal {

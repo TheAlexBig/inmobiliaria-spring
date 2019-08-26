@@ -7,6 +7,10 @@ var curtain = document.querySelector("#map");
 
 
 mapToggle.addEventListener('change', function () {
+    changeSearchMapState();
+});
+
+function changeSearchMapState(){
     if (mapToggle.checked) {
         houseChild.forEach(function (e) {
             e.classList.remove('col-md-3');
@@ -26,8 +30,7 @@ mapToggle.addEventListener('change', function () {
         mapHolder.classList.remove("col-md-4");
         mapHolder.classList.add("col-md-0");
     }
-});
-
+}
 
 var createdPopup = [];
 //Configuration of popOver
@@ -111,7 +114,7 @@ function createSlider(option, sliderInputs, stepSlider) {
                 range: {
                     'min': 0,
                     '70%': 20000,
-                    'max': 2000000
+                    'max': 9000000
                 }
             });
 
@@ -177,8 +180,3 @@ function setSliderEvents(option, sliderInputs, stepSlider) {
     }
 }
 
-window.onload = function () {
-    filter.forEach(function (e) {
-        setPopoverMenu(e);
-    });
-};

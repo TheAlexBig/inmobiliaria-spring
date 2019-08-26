@@ -119,7 +119,16 @@
     text-shadow: 0 0.46875rem 2.1875rem rgba(0, 0, 0, 0.5), 0 0.9375rem 1.40625rem rgba(0, 0, 0, 0.05),
     0 0.25rem 0.53125rem rgba(0,0,0,.1), 0 0.125rem 0.1875rem rgba(0,0,0,.1);
 }
-
+.salient-interest{
+    position: absolute;
+    top: 3%;
+    right:  0.3em;
+    border-radius: 0;
+}
+.salient-interest>i{
+    text-shadow: 0 0.46875rem 2.1875rem rgba(0, 0, 0, 0.5), 0 0.9375rem 1.40625rem rgba(0, 0, 0, 0.05),
+    0 0.25rem 0.53125rem rgba(0,0,0,.1), 0 0.125rem 0.1875rem rgba(0,0,0,.1);
+}
 .salient-action {
     background: #e67e22;
     position: absolute;
@@ -243,17 +252,8 @@ a.custom-card:hover {
     color: inherit;
     text-decoration: none;
 }
-#intro-items>button.slick-prev.slick-arrow,
-#intro-items>button.slick-next.slick-arrow{
-    color: var(--primary);
-}
 
-#intro-items>button.slick-prev.slick-arrow{
-    left: 0;
-}
-#intro-items>button.slick-next.slick-arrow{
-    right: 0;
-}
+
 select.btn.btn-outline-primary.text-white>*{
     color: #000;
     background-color: #fff;
@@ -292,17 +292,11 @@ ul#menu-top-index> li:last-child  {
     transform: scale(1.2);
     transform-origin: 50% 50%;
 }
-.slick-prev {
-
-}
 .slick-next {
     right: 100px !important;
     background-color: var(--primary)  !important; /*to notice it, is white*/
 }
-#intro-items>button.slick-prev.slick-arrow{
-    left: 100px !important;
-    background-color: var(--primary)  !important; /*to notice it, is white*/
-}
+
 
 .paginator-center{
     position: absolute;
@@ -348,6 +342,7 @@ ul#menu-top-index> li:last-child  {
     line-height: 20px;
     font-weight: bold;
     font-size: 14px;
+    text-transform: capitalize;
 }
 .anchor-name-house{
     width: 70px; height: fit-content;
@@ -361,6 +356,7 @@ ul#menu-top-index> li:last-child  {
     line-height: 20px;
     font-weight: bold;
     font-size: 14px;
+    text-transform: capitalize;
 }
 
 

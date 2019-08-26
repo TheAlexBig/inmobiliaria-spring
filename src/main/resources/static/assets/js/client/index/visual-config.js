@@ -63,7 +63,7 @@ $(document).ready(function(){
             range: {
                 'min': 0,
                 '70%': 20000,
-                'max': 2000000
+                'max': 9000000
             }
         });
 

@@ -3,13 +3,10 @@
 
 <head th:insert="client/fragments/navbar::header-files"></head>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI"></script>
 <script defer th:src="@{/assets/js/client/marker-with-label.js}"></script>
 
-<script th:replace="client/inline/map-config-description::map-javascript"></script>
-
-
-<body onload="initMap()">
+<body>
 <header>
     <div class="bg-light pr-1 pl-1">
         <nav th:replace="client/fragments/navbar::commun"></nav>
@@ -333,7 +330,7 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <div class="row d-flex flex-row justify-content-between">
+                            <div class="row d-flex flex-row justify-content-around">
                                 <button class="btn btn-lg btn-success">Calcular</button>
                                 <button class="btn btn-lg btn-dark">Reiniciar</button>
                             </div>
@@ -349,27 +346,32 @@
 <div class="container mt-5 mb-3">
     <h4 class="align-text-center mb-4">Inmuebles similares</h4>
 </div>
-<div class="container-fluid">
     <!-- Recommended slicker -->
-    <div id="recommended" class="mb-5 row">
-        <div class="col-md-3">
-            <div class="card" th:href="@{/description}">
+    <div class="slider-box _clearfix position-sticky">
+        <div class="col-md-12 col-sm-0 paginator-center text-color text-center ">
+            <button class="btn btn-lg btn-dark prev-slick ml-1"><i class="fas fa-arrow-left"></i></button>
+            <button class="btn btn-lg btn-dark next-slick mr-1"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div id="recommended" class="mt-4 mb-5">
+            <div class="card mr-2 ml-2" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
-                    <div class="btn btn-sm salient-action">
+                    <div class="btn btn-sm btn btn-sm salient-action">
                         <span>Alquiler</span>
                     </div>
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
                     </div>
+                    <div class="salient-interest d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
-
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Recién remodelada</h5>
-                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <h5 class="card-title text-accent">Diseño rústico</h5>
                     </div>
-                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                    <h5><i class="fas fa-dollar-sign">1000</i></h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -388,12 +390,12 @@
                             <h6>Baños</h6>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" th:href="@{/description}">
+            <div class="card mr-2 ml-2" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
                     <div class="btn btn-sm salient-action">
@@ -402,13 +404,16 @@
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
                     </div>
+                    <div class="salient-interest d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Increible vista a la ciudad</h5><i
-                            class="fas fa-heart text-danger fav-format"></i>
+                        <h5 class="card-title text-accent">Amplia y recién construida</h5>
                     </div>
-                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                    <h5><i class="fas fa-dollar-sign">1000</i></h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -427,12 +432,12 @@
                             <h6>Baños</h6>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" th:href="@{/description}">
+            <div class="card mr-2 ml-2" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house3.jpg}" alt="Card image cap">
                     <div class="btn btn-sm salient-action">
@@ -441,14 +446,17 @@
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
                     </div>
+                    <div class="salient-interest d-flex justify-content-around">
+                            <i class="fas fa-heart text-danger fav-format"></i>
+                            <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Diseño rústico</h5><i
-                            class="fas fa-heart text-danger fav-format"></i>
+                        <h5 class="card-title text-accent">Exculsiva del sitio web</h5>
                     </div>
-                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                    <h5><i class="fas fa-dollar-sign">1000</i></h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -467,12 +475,12 @@
                             <h6>Baños</h6>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" th:href="@{/description}">
+            <div class="card mr-2 ml-2" th:href="@{/description}">
                 <div class="salient-img">
                     <img class="card-img-top" th:src="@{/assets/img/house2.jpg}" alt="Card image cap">
                     <div class="btn btn-sm salient-action">
@@ -481,14 +489,17 @@
                     <div class="salient-fav fav-format">
                         <i class="fas fa-star text-warning"></i>
                     </div>
+                    <div class="salient-interest d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
                 </div>
 
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title text-accent">Limitado al sitio web</h5><i
-                            class="fas fa-heart text-danger fav-format"></i>
+                        <h5 class="card-title text-accent">Removida a finales de septiembre</h5>
                     </div>
-                    <h5><i class="fas fa-dollar-sign"></i>1000</h5>
+                    <h5><i class="fas fa-dollar-sign">1000</i></h5>
                     <hr>
                     <p>
                         <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
@@ -507,13 +518,58 @@
                             <h6>Baños</h6>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card mr-2 ml-2" th:href="@{/description}">
+                <div class="salient-img">
+                    <img class="card-img-top" th:src="@{/assets/img/house1.jpg}" alt="Card image cap">
+                    <div class="btn btn-sm salient-action">
+                        <span>Alquiler</span>
+                    </div>
+                    <div class="salient-fav fav-format">
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <div class="salient-interest d-flex justify-content-around">
+                        <i class="fas fa-heart text-danger fav-format"></i>
+                        <i class="fas fa-ban text-danger fav-format"></i>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title text-accent">Recién remodelada</h5>
+                    </div>
+                    <h5><i class="fas fa-dollar-sign">1000</i></h5>
+                    <hr>
+                    <p>
+                        <i class="fas fa-map-marker-alt text-muted mr-3"></i> 75 avenida norte
+                    </p>
+                    <div class="d-flex justify-content-between text-muted text-center">
+                        <div>
+                            <i class="far fa-clone"></i> 2
+                            <h6>Cuartos</h6>
+                        </div>
+                        <div>
+                            <i class="fas fa-bed"></i> 3
+                            <h6>Dormitorios</h6>
+                        </div>
+                        <div>
+                            <i class="fas fa-bath"></i> 2
+                            <h6>Baños</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-primary" type="submit">Detalles</button>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
     <!-- /Recommended slicker -->
-</div>
 <br>
 <div class="container d-flex flex-column align-items-center align-content-around text-center bg-primary p-4">
     <h2 class="text-white">¿Quiéres publicar una propiedad?</h2>
@@ -528,6 +584,6 @@
 
 <script type="text/javascript" th:src="@{/assets/js/client/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/client/description/visual-config.js}"></script>
-
+<script th:replace="client/inline/map-config-description::map-javascript"></script>
 </body>
 </html>

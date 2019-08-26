@@ -16,9 +16,8 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
                 .authorizeRequests()
-                //.antMatchers("assets/css/**", "client/**").permitAll()
-                .antMatchers("assets/js/**","assets/css/**", "/").permitAll()
-                .antMatchers("client/form/**").hasRole("USER")
+                .antMatchers("assets/js/**", "client/**","assets/css/**", "/**").permitAll()
+                .antMatchers("/publish-form/**").hasRole("USER")
                 .and()
                 .formLogin()
                 .loginPage("/login").failureUrl("/login-error")
