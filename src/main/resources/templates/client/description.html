@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
-<head th:replace="client/fragments/navbar::headerfiles"></head>
+<head th:insert="client/fragments/navbar::header-files"></head>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI"></script>
+<script defer th:src="@{/assets/js/client/marker-with-label.js}"></script>
+
+<script th:replace="client/inline/map-config-description::map-javascript"></script>
+
+
+<body onload="initMap()">
 <header>
     <div class="bg-light pr-1 pl-1">
         <nav th:replace="client/fragments/navbar::commun"></nav>
     </div>
 </header>
-<body>
 <div class="container mt-4">
     <div id="name&fav">
         <h2 class="title text-accent align-middle">Hermosa Casa Amueblada
@@ -519,58 +526,8 @@
 
 <div th:replace="client/fragments/footer::script-files"></div>
 
-<script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/description/visual-config.js}"></script>
-<script type="text/javascript" th:inline="javascript">
-    function initMap() {
-        var location = [[${location}]];
-        var nearbyMap = [[${points}]];
-
-
-        var averageLng = location.lng;
-        var averageLat = location.lat;
-        var targetLocation = new google.maps.LatLng(averageLat, averageLng);
-        var interestSize = 1;
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 14,
-            center: targetLocation,
-            mapTypeId: 'roadmap'
-        });
-
-        nearbyMap.forEach(function (p) {
-            new google.maps.Marker({
-                position: new google.maps.LatLng(p.lat, p.lng),
-                map: map
-            });
-            interestSize++;
-            averageLng += p.lng;
-            averageLat += p.lat;
-        });
-
-        averageLng = Math.abs(averageLng);
-        averageLat = Math.abs(averageLat);
-
-
-        var cityCircle = new google.maps.Circle({
-            strokeColor: '#18ffbb',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#62ffc1',
-            fillOpacity: 0.35,
-            map: map,
-            center: targetLocation,
-            radius: 100
-        });
-    }
-
-    window.loaded = function () {
-        initMap();
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI&callback=initMap">
-</script>
-
+<script type="text/javascript" th:src="@{/assets/js/client/general/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/client/description/visual-config.js}"></script>
 
 </body>
 </html>

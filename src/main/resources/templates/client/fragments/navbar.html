@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="headerfiles">
-    <title>Inmobiliaria</title>
+<!-- HEADERS -->
+<div th:remove="tag" th:fragment="header-files">
+    <title>tupunto</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--CSS REQUIRED-->
@@ -13,10 +14,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/shards.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/main-style.css}">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0"
+    <link rel="stylesheet" data-version="1.1.0"
           th:href="@{/assets/css/shards-dashboards.1.1.0.min.css}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-</head>
+</div>
+
+<!-- NAVBARS -->
 <body>
 <nav th:fragment="index"  id="navbar-index" class="navbar navbar-expand-lg navbar-dark pt-0 mt-1">
     <div class="col-md-8 offset-md-2 col-sm-0">
@@ -32,6 +35,9 @@
             </li>
             <li class="nav-item w-100">
                 <a class="index-nav-title nav-link title-help-text-md " th:href="@{/contact-us}">Contáctanos</a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="index-nav-title nav-link title-help-text-md " href="#">Publicar</a>
             </li>
         </ul>
     </div>
@@ -55,7 +61,9 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/contact-us}">Contáctanos</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="#">Publicar</a>
+            </li>
         </ul>
     </div>
 </nav>

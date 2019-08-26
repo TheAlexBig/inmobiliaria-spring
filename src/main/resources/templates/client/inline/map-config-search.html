@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" th:inline="javascript" th:fragment="map-javascript">
+    function initMap() {
+        var location = [[${location}]];
+        var targetLocation = new google.maps.LatLng(location.lat, location.lng);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 11,
+            center: targetLocation,
+            mapTypeId: 'roadmap'
+        });
+
+        var marker = new google.maps.Marker({
+            zoom: 11,
+            position: {
+                lng: location.lng,
+                lat: location.lat
+            },
+            map: map,
+            title: 'Search results'
+        });
+    }
+
+    var filter = [
+        {'btn': 'price-btn', 'tooltip': 'price-nav-popover',
+            'slider': 'price-range-slider','sliderOption': 2,
+            'inputs': ['min-price', 'max-price'] },
+        {'btn': 'surface-btn', 'tooltip': 'surface-nav-popover',
+            'slider':'surface-range-slider',  'sliderOption': 1,
+            'inputs': ['min-surface']
+        }]
+    ;
+</script>
+</html>

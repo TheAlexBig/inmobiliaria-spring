@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="client/fragments/navbar::headerfiles"></head>
+<head th:insert="client/fragments/navbar::header-files"></head>
 <body>
 <div class="welcome-container">
     <nav th:replace="client/fragments/navbar::index"></nav>
@@ -107,11 +107,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="w-100  d-flex flex-row flex-row align-items-end justify-content-end ">
-                            <button class="btn btn-info fit-height"><i class="fas fa-plus"></i> Publicar propiedad</button>
-                        </div>
                     </div>
                 </div>
                 <div class="row w-100">
@@ -358,15 +353,19 @@
 
 </div>
 <!-- / Inner Wrapper 2-->
-
-
+<br>
+<div class="container d-flex flex-column align-items-center align-content-around text-center bg-primary p-4">
+    <h2 class="text-white">¿Quiéres publicar una propiedad?</h2>
+    <button class="btn btn-lg btn-info w-25"><i class="fas fa-plus pr-1"></i>Publica con nosotros</button>
+</div>
+<br>
 
 <div th:replace="client/fragments/footer::standard-footer"></div>
 
 <div th:replace="client/fragments/footer::script-files"></div>
 
-<script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
-<script type="text/javascript" th:src="@{/assets/js/index/visual-config.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/client/general/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/client/index/visual-config.js}"></script>
 
 </body>
 </html>

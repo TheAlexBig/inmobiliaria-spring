@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" th:inline="javascript" th:fragment="map-javascript">
+    function initMap() {
+        var location = [[${location}]];
+        var nearbyMap = [[${points}]];
+
+        var averageLng = location.lng;
+        var averageLat = location.lat;
+        var targetLocation = new google.maps.LatLng(averageLat, averageLng);
+        var scaledSizeMarker = new google.maps.Size(35, 35);
+        var originMarker = new google.maps.Point(0, 0);
+        var anchorMarker = new google.maps.Point(0,44);
+
+        var interestSize = 1;
+
+        var markerIcon = {
+            url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+            scaledSize: scaledSizeMarker,
+            origin: originMarker,
+            anchor: anchorMarker
+        };
+        var houseIcon = {
+            url: 'https://image.flaticon.com/icons/svg/1104/1104720.svg',
+            scaledSize: scaledSizeMarker,
+            origin: originMarker,
+            anchor: anchorMarker
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: targetLocation,
+            mapTypeId: 'roadmap'
+        });
+
+        //Add all interest map
+        nearbyMap.forEach(function (p) {
+            var markerLatLng = new google.maps.LatLng(p.lat, p.lng);
+            var standardPoint = new google.maps.Point(14, 12);
+            new MarkerWithLabel({
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: markerLatLng,
+                icon: markerIcon,
+                labelContent: p.name,
+                labelAnchor: standardPoint,
+                labelClass: "anchor-name",
+                labelInBackground: false
+            });
+            interestSize++;
+            averageLng += p.lng;
+            averageLat += p.lat;
+        });
+
+        //Add house icon
+        var locationLabelPosition = new google.maps.Point(14, 12);
+        new MarkerWithLabel({
+            map: map,
+            animation: google.maps.Animation.DROP,
+            position: targetLocation,
+            icon: houseIcon,
+            labelAnchor: locationLabelPosition,
+            labelContent: location.name,
+            labelClass: "anchor-name-house",
+            labelInBackground: false
+        });
+    }
+</script>
+</html>

@@ -6,9 +6,6 @@ var mapHolder = document.querySelector("#map-holder");
 var curtain = document.querySelector("#map");
 
 
-
-
-
 mapToggle.addEventListener('change', function () {
     if (mapToggle.checked) {
         houseChild.forEach(function (e) {
@@ -178,5 +175,10 @@ function setSliderEvents(option, sliderInputs, stepSlider) {
             });
             break;
     }
-
 }
+
+window.onload = function () {
+    filter.forEach(function (e) {
+        setPopoverMenu(e);
+    });
+};

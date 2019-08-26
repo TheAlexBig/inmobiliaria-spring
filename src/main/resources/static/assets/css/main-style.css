@@ -336,8 +336,32 @@ ul#menu-top-index> li:last-child  {
     text-align: center;
     text-align-last: center;
 }
+.anchor-name {
+    width: 70px; height: fit-content;
 
+    border: 1px solid #eb3a44;
+    border-radius: 5px;
 
+    background: #fee1d7;
+    color: #eb3a44;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.anchor-name-house{
+    width: 70px; height: fit-content;
+
+    border: 1px solid #23daeb;
+    border-radius: 5px;
+
+    background: #c1c5fe;
+    color: #3ba3eb;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
 
 
