@@ -2,11 +2,12 @@ package com.root.inmobiliaria.service.auth
 
 import com.root.inmobiliaria.repository.auth.UserRepositoryImpl
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.core.userdetails.UserDetails
+
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import java.util.HashSet
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetailsService
 

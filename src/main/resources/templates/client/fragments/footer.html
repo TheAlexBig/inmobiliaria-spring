@@ -8,7 +8,12 @@
     <script type="text/javascript" th:src="@{/assets/js/client/general/shards.min.js}"></script>
     <script type="text/javascript" th:src="@{/assets/js/client/general/jquery.sharrre.min.js}"></script>
 </div>
-
+<div th:remove="tag" th:fragment="script-simple">
+    <script type="text/javascript" th:src="@{/assets/js/client/general/jquery-3.3.1.slim.min.js}" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/assets/js/client/general/bootstrap.min.js}" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/assets/js/client/general/shards.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/client/general/jquery.sharrre.min.js}"></script>
+</div>
 <footer id="footer" th:fragment="standard-footer">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">

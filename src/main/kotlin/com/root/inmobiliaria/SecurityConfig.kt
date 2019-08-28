@@ -1,22 +1,20 @@
 package com.root.inmobiliaria
 
-import org.springframework.security.authorization.AuthorityReactiveAuthorizationManager.hasRole
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
-import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-
-import org.springframework.security.authorization.AuthorityReactiveAuthorizationManager.hasRole
-import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds
-import org.springframework.security.core.userdetails.UserDetailsService
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 
@@ -25,13 +23,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 @EnableWebSecurity
 @EnableAutoConfiguration(exclude = arrayOf(DataSourceAutoConfiguration::class, HibernateJpaAutoConfiguration::class))
 class SecurityConfig : WebSecurityConfigurerAdapter() {
-
+    @Qualifier("userDetailsServiceImpl")
+    @Autowired
+    lateinit var userDetailsService : UserDetailsService
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         http
                 .authorizeRequests()
-                .antMatchers("assets/js/**", "client/**","assets/css/**", "/**").permitAll()
+                .antMatchers("assets/js/**","assets/css/**", "/" ).permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login").failureUrl("/login-error")
@@ -40,15 +40,13 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     @Autowired
     @Throws(Exception::class)
     fun configureGlobal(auth: AuthenticationManagerBuilder) {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder())
     }
 
     @Bean(name = [BeanIds.AUTHENTICATION_MANAGER])
-        @Throws(Exception::class)
-        override fun authenticationManagerBean(): AuthenticationManager {
-            return super.authenticationManagerBean()
+    @Throws(Exception::class)
+    override fun authenticationManagerBean(): AuthenticationManager {
+        return super.authenticationManagerBean()
     }
 
     @Bean

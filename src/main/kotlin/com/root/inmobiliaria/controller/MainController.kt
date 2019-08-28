@@ -27,7 +27,7 @@ class MainController{
         return "client/contact-us"
     }
 
-    @RequestMapping("/search", method = [RequestMethod.GET,RequestMethod.POST])
+    @RequestMapping("/search", method = [RequestMethod.POST, RequestMethod.GET])
     fun search(model: Model): String{
         val location = Position(13.651112, -89.280812, "ubicación")
         val points : MutableList<Position> = ArrayList<Position>()
@@ -61,8 +61,4 @@ class MainController{
         return "client/description"
     }
 
-    @RequestMapping("/login", method = [RequestMethod.POST, RequestMethod.GET])
-    fun loginRedirect(model:Model): String{
-        return "client/client-login"
-    }
 }

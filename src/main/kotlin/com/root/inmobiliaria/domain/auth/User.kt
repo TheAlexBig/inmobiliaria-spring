@@ -7,15 +7,15 @@ import javax.persistence.ManyToMany
 @Entity
 data class User (
     @Id
-    var id: String? = "1",
+    var id: String = "1",
 
-    var email: String = "Default_email",
+    var email: String = "",
 
-    var username: String? = "Default_username",
+    var username: String = "",
 
-    var password: String? = "Default_password",
+    var password: String = "",
 
-    var passwordConfirm: String? ="Default_confirm",
+    var passwordConfirm: String ="",
 
     @ManyToMany
     var roles: Set<Role>? = null

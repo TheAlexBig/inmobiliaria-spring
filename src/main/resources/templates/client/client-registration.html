@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="client/fragments/navbar::header-simple"></head>
+<header>
+    <div class="bg-light pr-1 pl-1">
+        <nav th:replace="client/fragments/navbar::commun"></nav>
+    </div>
+</header>
+<body>
+
+
+<div class="container-fluid mt-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4">
+            <div class="card card-small mb-4">
+                <div class="card-header bg-primary border-bottom">
+                    <h4 class="m-0 text-white text-center">Registrar cuenta</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-3">
+                        <div class="row">
+                            <form class="col" method="POST" th:object="${userForm}" th:action="@{/registration}">
+                                <div class="form-group d-flex flex-column justify-content-center"
+                                     th:classappend="${error} ? 'has-error':''">
+                                    <div class="form-row">
+                                        <!--Email input -->
+                                        <div class="form-group col-md-12">
+                                            <label for="email">Correo electronico</label>
+                                            <input th:field="*{email}" type="email" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('email')} ? 'has-error':''"
+                                                   id="email" placeholder="Correo electronico">
+                                        </div>
+                                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                              class="text-danger"></span>
+                                        <!--/ Email input -->
+                                        <!-- Username input -->
+                                        <div class="form-group col-md-12">
+                                            <label for="username">Nombre de usuario</label>
+                                            <input th:field="*{username}" type="text" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('username')} ? 'has-error':''"
+                                                   id="username" placeholder="Usuario">
+                                        </div>
+                                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                                              class="text-danger"></span>
+                                        <!--/ Username input -->
+                                        <!-- Password input -->
+                                        <div class="form-group col-md-12">
+                                            <label for="password">Contraseña</label>
+                                            <input th:field="*{password}" type="password" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('password')} ? 'has-error':''"
+                                                   id="password" placeholder="Contraseña">
+                                        </div>
+                                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                                              class="text-danger"></span>
+                                        <!--/ Password input -->
+                                        <!-- ReconfirmPassword input -->
+                                        <div class="form-group col-md-12">
+                                            <label for="passwordConfirm">Confirma contraseña</label>
+                                            <input th:field="*{passwordConfirm}" type="password" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('passwordConfirm')} ? 'has-error':''"
+                                                   id="passwordConfirm" placeholder="Confirmación">
+                                        </div>
+                                        <span th:if="${#fields.hasErrors('passwordConfirm')}"
+                                              th:errors="*{passwordConfirm}"
+                                              class="text-danger"></span>
+                                        <!--/ ReconfirmPassword input -->
+
+                                    </div>
+                                    <button type="submit" class="btn btn-accent">Registrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="client/fragments/footer::standard-footer"></div>
+
+<div th:replace="client/fragments/footer::script-simple"></div>
+</body>
+</html>
