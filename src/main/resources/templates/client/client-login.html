@@ -36,8 +36,8 @@
                                                    placeholder="Contraseña">
                                         </div>
                                         <!--/ Password input -->
-                                        <span th:text="${message}"></span>
-                                        <span th:text="${error}"></span>
+                                        <span class="pl-2 text-danger" th:text="${message}"></span>
+                                        <span class="pl-2 text-danger" th:text="${error}"></span>
                                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                     </div>
                                     <button type="submit" class="btn btn-accent">Ingresar</button>

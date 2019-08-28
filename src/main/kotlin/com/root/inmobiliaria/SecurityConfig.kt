@@ -34,7 +34,11 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 .antMatchers("assets/js/**","assets/css/**", "/" ).permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login").failureUrl("/login-error")
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
     }
 
     @Autowired
