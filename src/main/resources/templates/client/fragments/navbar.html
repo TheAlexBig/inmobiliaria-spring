@@ -5,12 +5,13 @@
     <title>tupunto</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Loader -->
-    <script th:src="@{/assets/js/pace.min.js}"></script>
-    <link th:src="@{/assets/css/pace.css}" rel="stylesheet" />
+
     <!--CSS REQUIRED-->
 
     <link rel="icon" th:href="@{/assets/img/favicon.ico}">
+    <!-- Loader -->
+    <script type="text/javascript" th:src="@{/assets/js/general/pace.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/assets/css/pace.css}"  />
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap.min.css}" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -24,11 +25,10 @@
     <title>tupunto</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Loader -->
-    <script th:src="@{/assets/js/pace.min.js}"></script>
-    <link th:src="@{/assets/css/pace.css}" rel="stylesheet" />
     <!--CSS REQUIRED-->
     <link rel="icon" th:href="@{/assets/img/favicon.ico}">
+    <script type="text/javascript" th:src="@{/assets/js/general/pace.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/assets/css/pace.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap.min.css}" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -85,5 +85,8 @@
         </ul>
     </div>
 </nav>
+<div th:fragment="loader" class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
 </body>
 </html>

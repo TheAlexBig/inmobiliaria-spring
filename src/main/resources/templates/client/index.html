@@ -3,6 +3,7 @@
 
 <head th:insert="client/fragments/navbar::header-files"></head>
 <body>
+<div th:replace="client/fragments/navbar::loader"></div>
 <div class="welcome-container">
     <nav th:replace="client/fragments/navbar::index"></nav>
     <!-- Inner Wrapper -->
@@ -364,7 +365,7 @@
 
 <div th:replace="client/fragments/footer::script-files"></div>
 
-<script type="text/javascript" th:src="@{/assets/js/client/general/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/client/index/visual-config.js}"></script>
 
 </body>

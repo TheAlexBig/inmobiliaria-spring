@@ -7,6 +7,7 @@
 <script defer th:src="@{/assets/js/client/marker-with-label.js}"></script>
 
 <body>
+<div th:replace="client/fragments/navbar::loader"></div>
 <header>
     <div class="bg-light pr-1 pl-1">
         <nav th:replace="client/fragments/navbar::commun"></nav>
@@ -582,7 +583,7 @@
 
 <div th:replace="client/fragments/footer::script-files"></div>
 
-<script type="text/javascript" th:src="@{/assets/js/client/general/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/client/description/visual-config.js}"></script>
 <script th:replace="client/inline/map-config-description::map-javascript"></script>
 </body>
