@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import com.root.inmobiliaria.service.auth.interfaces.SecurityService
 import com.root.inmobiliaria.service.auth.interfaces.UserService
 import org.springframework.stereotype.Controller
+import javax.validation.Valid
 
 
 @Controller
@@ -33,8 +34,8 @@ class UserController {
     }
 
     @PostMapping("/registration")
-    fun registration(@ModelAttribute("userForm") userForm: User, bindingResult: BindingResult): String {
-        userValidator.validate(userForm, bindingResult)
+    fun registration(@Valid @ModelAttribute("userForm") userForm: User,
+                     bindingResult: BindingResult): String {
 
         if (bindingResult.hasErrors()) {
             return "client/client-registration"
