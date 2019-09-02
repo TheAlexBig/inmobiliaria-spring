@@ -1,6 +1,7 @@
 package com.root.inmobiliaria.validator
 
 import com.root.inmobiliaria.domain.auth.User
+import com.root.inmobiliaria.form.UserForm
 import org.springframework.validation.ValidationUtils
 import org.springframework.validation.Errors
 import com.root.inmobiliaria.service.auth.interfaces.UserService
@@ -19,7 +20,7 @@ class UserValidator : Validator {
     }
 
     override fun validate(o: Any, errors: Errors) {
-        val user = o as User
+        val user = o as UserForm
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty")
         if (user.username.length < 6 || user.username.length > 32) {
@@ -28,7 +29,7 @@ class UserValidator : Validator {
 
         val foundUser = userService.findByUsername(user.username)
 
-        if (foundUser == user) {
+        if (foundUser.username == user.username) {
             errors.rejectValue("username", "Duplicate.userForm.username")
         }
 

@@ -18,7 +18,7 @@ class SecurityServiceImpl : SecurityService {
     lateinit var authenticationManager: AuthenticationManager
 
     @Autowired
-    lateinit var userDetailsService: UserDetailsService
+    lateinit var userDetailsService : UserDetailsService
 
     override fun findLoggedInUsername(): String {
         val userDetails = SecurityContextHolder.getContext().authentication.details
@@ -32,7 +32,7 @@ class SecurityServiceImpl : SecurityService {
         val userDetails = userDetailsService.loadUserByUsername(username)
         val usernamePasswordAuthenticationToken = UsernamePasswordAuthenticationToken(userDetails, password, userDetails.authorities)
 
-        authenticationManager!!.authenticate(usernamePasswordAuthenticationToken)
+        authenticationManager.authenticate(usernamePasswordAuthenticationToken)
 
         if (usernamePasswordAuthenticationToken.isAuthenticated) {
             SecurityContextHolder.getContext().authentication = usernamePasswordAuthenticationToken

@@ -1,5 +1,5 @@
 package com.root.inmobiliaria.config
-
+/*
 import com.google.api.core.ApiFuture
 import com.google.cloud.firestore.Firestore
 import com.google.cloud.firestore.FirestoreOptions
@@ -35,3 +35,4 @@ data class FirebaseSetUp(
         }
     }
 
+*/
