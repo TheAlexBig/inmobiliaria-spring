@@ -2,6 +2,7 @@ package com.root.inmobiliaria.controller
 
 import com.root.inmobiliaria.domain.auth.User
 import com.root.inmobiliaria.form.UserForm
+import com.root.inmobiliaria.service.auth.SecurityServiceImpl
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.thymeleaf.spring5.util.FieldUtils.hasErrors
@@ -22,7 +23,10 @@ class UserController {
     lateinit var userService: UserService
 
     @Autowired
-    lateinit var securityService: SecurityService
+    lateinit var securityService: SecurityServiceImpl
+
+    @Autowired
+    lateinit var userValidator: UserValidator
 
     @GetMapping("/registration")
     fun registration(user : UserForm, model: Model): String {
@@ -34,16 +38,17 @@ class UserController {
     @PostMapping("/registration")
     fun registration(@Valid @ModelAttribute("userForm") userForm: UserForm,
                      bindingResult: BindingResult): String {
-        var user = User()
-        if (bindingResult.hasErrors()) {
-            return "client/client-registration"
-        }
+        val user = User()
         user.password = userForm.password
         user.username = userForm.username
         user.email = userForm.email
 
-        userService.save(user)
+        userValidator.validate(userForm, bindingResult)
 
+        if (bindingResult.hasErrors()) {
+            return "client/client-registration"
+        }
+        userService.save(user)
         securityService.autoLogin(userForm.username, userForm.password)
 
         return "redirect:/"

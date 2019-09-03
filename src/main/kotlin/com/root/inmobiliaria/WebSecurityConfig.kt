@@ -1,7 +1,9 @@
 package com.root.inmobiliaria
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.BeanIds
@@ -12,12 +14,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
-
-
-
+@ComponentScan(value = ["com.root.inmobiliaria.service", "com.root.inmobiliaria.repositories"])
 @Configuration
 @EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter() {
+class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+
     @Autowired
     lateinit var userDetailsService : UserDetailsService
 
@@ -29,6 +30,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .usernameParameter("email")
                 .permitAll()
                 .and()
                 .logout()

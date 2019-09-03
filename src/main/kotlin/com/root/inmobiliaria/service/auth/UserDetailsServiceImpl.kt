@@ -2,6 +2,7 @@ package com.root.inmobiliaria.service.auth
 
 import com.root.inmobiliaria.repositories.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Primary
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -10,8 +11,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 
-
+@Primary
 @Service
 class UserDetailsServiceImpl : UserDetailsService{
 
@@ -20,13 +22,17 @@ class UserDetailsServiceImpl : UserDetailsService{
 
     @Transactional(readOnly = true)
     override fun loadUserByUsername( Username: String): UserDetails{
-        val user = userRepositoryImpl.findByUsername(Username)
+        val user = userRepositoryImpl.findByEmail(Username)
 
         val grantedAuthorities = HashSet<GrantedAuthority>()
-
-        if(user.accountType==1) {
-            grantedAuthorities.add(SimpleGrantedAuthority("client"))
+        if(user.isPresent){
+            if(user.get().accountType==1) {
+                grantedAuthorities.add(SimpleGrantedAuthority("client"))
+            }
+            return org.springframework.security.core.userdetails.User(user.get().username, user.get().password, grantedAuthorities)
         }
-        return org.springframework.security.core.userdetails.User(user.username, user.password, grantedAuthorities)
+        else{
+            throw UsernameNotFoundException(Username)
+        }
     }
 }

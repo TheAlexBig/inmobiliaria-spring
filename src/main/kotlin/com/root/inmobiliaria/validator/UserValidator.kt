@@ -22,24 +22,16 @@ class UserValidator : Validator {
     override fun validate(o: Any, errors: Errors) {
         val user = o as UserForm
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty")
-        if (user.username.length < 6 || user.username.length > 32) {
-            errors.rejectValue("username", "Size.userForm.username")
-        }
-
-        val foundUser = userService.findByUsername(user.username)
-
-        if (foundUser.username == user.username) {
-            errors.rejectValue("username", "Duplicate.userForm.username")
-        }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty")
-        if (user.password.length < 8 || user.password.length > 32) {
-            errors.rejectValue("password", "Size.userForm.password")
+        val foundUser = userService.findByUsernameOrEmail(user.username, user.email)
+        if (foundUser.isPresent) {
+            if(foundUser.get().username == user.username)
+                errors.rejectValue("username", "Duplicate.userForm.username", "El nombre de usuario ya esta en uso")
+            if(foundUser.get().email == user.email)
+                errors.rejectValue("email", "Duplicate.userForm.email", "El correo ingresado ya se encuentra vinculado en la plataforma")
         }
 
         if (user.passwordConfirm != user.password) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm")
+            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm", "Las contraseñas no coinciden")
         }
     }
 }

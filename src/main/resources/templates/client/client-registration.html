@@ -25,37 +25,37 @@
                                      th:classappend="${error} ? 'has-error':''">
                                     <div class="form-row">
                                         <!--Email input -->
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12 mb-2">
                                             <label for="email">Correo electronico</label>
                                             <input th:field="*{email}" type="email" class="form-control"
                                                    th:classappend="${#fields.hasErrors('email')} ? 'has-error':''"
                                                    id="email" placeholder="Correo electronico">
                                         </div>
                                         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                                              class="pl-2 text-danger"></span>
+                                              class="pl-2 text-danger mb-2"></span>
                                         <!--/ Email input -->
                                         <!-- Username input -->
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12 mb-2">
                                             <label for="username">Nombre de usuario</label>
                                             <input th:field="*{username}" type="text" class="form-control"
                                                    th:classappend="${#fields.hasErrors('username')} ? 'has-error':''"
                                                    id="username" placeholder="Usuario">
                                         </div>
                                         <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
-                                              class="pl-2 text-danger"></span>
+                                              class="pl-2 text-danger mb-2"></span>
                                         <!--/ Username input -->
                                         <!-- Password input -->
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12 mb-2">
                                             <label for="password">Contraseña</label>
                                             <input th:field="*{password}" type="password" class="form-control"
                                                    th:classappend="${#fields.hasErrors('password')} ? 'has-error':''"
                                                    id="password" placeholder="Contraseña">
                                         </div>
                                         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                                              class="pl-2 text-danger"></span>
+                                              class="pl-2 text-danger mb-2"></span>
                                         <!--/ Password input -->
                                         <!-- ReconfirmPassword input -->
-                                        <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12 mb-2">
                                             <label for="passwordConfirm">Confirma contraseña</label>
                                             <input th:field="*{passwordConfirm}" type="password" class="form-control"
                                                    th:classappend="${#fields.hasErrors('passwordConfirm')} ? 'has-error':''"
@@ -63,7 +63,7 @@
                                         </div>
                                         <span th:if="${#fields.hasErrors('passwordConfirm')}"
                                               th:errors="*{passwordConfirm}"
-                                              class="pl-2 text-danger"></span>
+                                              class="pl-2 text-danger mb-2"></span>
                                         <!--/ ReconfirmPassword input -->
 
                                     </div>

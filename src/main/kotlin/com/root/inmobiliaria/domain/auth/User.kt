@@ -1,21 +1,33 @@
 package com.root.inmobiliaria.domain.auth
 
-import com.root.inmobiliaria.domain.Position
-import com.root.inmobiliaria.form.UserForm
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType
 import org.hibernate.annotations.TypeDef
 import org.hibernate.annotations.TypeDefs
 import javax.persistence.*
-import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.Size
+import com.vladmihalcea.hibernate.type.array.IntArrayType
+import org.hibernate.annotations.Type
+import java.io.Serializable
+import java.util.*
+
 
 @Entity
 @Table(name="user", schema = "public")
+@TypeDefs(
+        TypeDef(name = "int-array", typeClass = IntArrayType::class),
+        TypeDef(name="jsonb", typeClass = JsonBinaryType::class)
+    )
 data class User (
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Type(type="pg-uuid")
+    @Column(name = "u_code",  insertable=false)
+    var code: UUID? = null,
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_u_code_seq")
-    @SequenceGenerator(sequenceName = "user_u_code_seq",  name = "user_u_code_seq")
-    @Column(name = "u_code")
-    var code: Int = 0,
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_u_id_seq")
+    @SequenceGenerator(sequenceName = "user_u_id_seq",  name = "user_u_id_seq", initialValue = 1, allocationSize = 1)
+    @Column(name= "u_id")
+    var id : Int? = null,
 
         @Column(name = "u_email")
     var email: String = "",
@@ -38,11 +50,13 @@ data class User (
         @Column(name = "u_token_reset")
     var tokenReset : String = "",
 
-        @Column(name = "u_favorites", columnDefinition = "int[]")
-    var favorites : IntArray= intArrayOf(),
+        @Type( type = "int-array" )
+        @Column(name = "u_favorites", columnDefinition = "integer[]")
+    var favorites : IntArray = intArrayOf(),
 
-        @Column(name = "u_unliked", columnDefinition = "int[]")
-    var unliked : IntArray= intArrayOf(),
+        @Type( type = "int-array" )
+        @Column(name = "u_unliked", columnDefinition = "integer[]")
+    var unliked : IntArray = intArrayOf(),
 
         @Column(name = "u_active")
     var active : Boolean = true,
@@ -52,7 +66,7 @@ data class User (
 
         @Column(name = "u_last_updated")
     var lastUpdated : Int = 1
-)
+) : Serializable
 {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -60,9 +74,10 @@ data class User (
 
         other as User
 
-        if (!favorites.contentEquals(other.favorites)) return false
+        if (favorites.contentEquals(other.favorites)) return true
+        if (unliked.contentEquals(other.unliked)) return true
 
-        return true
+        return false
     }
 
     override fun hashCode(): Int {
