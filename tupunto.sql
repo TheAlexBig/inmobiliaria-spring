@@ -5,7 +5,6 @@ CREATE TABLE "user" (
   "u_username" varchar NOT NULL,
   "u_password" varchar NOT NULL,
   "u_account_type" int DEFAULT 1,
-  "u_profile_photo" varchar NULL,
   "u_token_verification" varchar NULL,
   "u_token_reset" varchar NULL,
   "u_favorites" integer[],
@@ -18,8 +17,9 @@ CREATE TABLE "user" (
 CREATE TABLE "client" (
   "c_code" UUID  PRIMARY KEY DEFAULT uuid_generate_v4 (),
   "c_id" SERIAL NOT NULL UNIQUE,
-  "u_code" UUID,
   "e_code" UUID NULL,
+  "u_code" UUID,
+  "c_profile_photo" varchar NULL,
   "c_address" jsonb NOT NULL,
   "c_document" jsonb NOT NULL,
   "c_names" varchar NOT NULL,
@@ -30,8 +30,9 @@ CREATE TABLE "client" (
 
 CREATE TABLE "enterprise" (
   "e_code" UUID  PRIMARY KEY DEFAULT uuid_generate_v4 (),
+  "e_id" SERIAL NOT NULL UNIQUE,
   "u_code" UUID,
-	"e_id" SERIAL NOT NULL UNIQUE,
+  "e_profile_photo" varchar NULL,
   "e_address" jsonb NOT NULL,
   "e_document" jsonb NOT NULL,
   "e_name" varchar NOT NULL,

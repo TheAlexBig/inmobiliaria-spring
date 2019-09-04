@@ -34,6 +34,9 @@ data class Client(
         @Column(name = "e_code")
         var enterprise : Enterprise?= null,
 
+        @Column(name = "c_profile_photo")
+        var profilePic : String = "",
+
         //TODO Not as intended just filled
         @Column(name = "c_address")
         @Type(type = "jsonb")

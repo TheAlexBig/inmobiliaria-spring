@@ -41,8 +41,6 @@ data class User (
         @Column(name = "u_account_type")
     var accountType : Int = 1,
 
-        @Column(name = "u_profile_photo")
-    var profilePic : String = "",
 
         @Column(name = "u_token_verification")
     var tokenVerify : String = "",

@@ -6,8 +6,6 @@ import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.Size
 
 data class UserForm (
-        var id: Int = 0,
-
         @field:NotEmpty(message = "Ingrese un correo electronico")
         var email: String = "",
 
@@ -22,7 +20,6 @@ data class UserForm (
         @field:NotEmpty(message = "Este campo no puede estar vacio")
         @field:Size(min=8, max = 32, message =  "Por favor use de 8 a 32 caracteres")
         var passwordConfirm: String =""
-
 ){
 
 }

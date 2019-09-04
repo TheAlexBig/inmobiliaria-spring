@@ -19,17 +19,20 @@ import javax.persistence.*
 data class Enterprise(
         @GeneratedValue(strategy = GenerationType.AUTO)
         @Type(type="pg-uuid")
-        @Column(name = "c_code")
+        @Column(name = "e_code")
         var code : UUID?= null,
 
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "enterprise_e_id_seq")
         @SequenceGenerator(sequenceName = "enterprise_e_id_seq",  name = "enterprise_e_id_seq", initialValue = 1, allocationSize = 1)
-        @Column(name= "c_id")
+        @Column(name= "e_id")
         var id : Int ? = null,
 
         @Column(name = "u_code")
         var account : User?= null,
+
+        @Column(name = "e_profile_photo")
+        var profilePic : String = "",
 
         @Column(name = "e_address")
         @Type(type = "jsonb")
