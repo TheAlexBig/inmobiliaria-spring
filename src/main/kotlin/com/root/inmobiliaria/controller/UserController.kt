@@ -4,16 +4,15 @@ import com.root.inmobiliaria.domain.auth.User
 import com.root.inmobiliaria.form.UserForm
 import com.root.inmobiliaria.service.auth.SecurityServiceImpl
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
 import org.thymeleaf.spring5.util.FieldUtils.hasErrors
 import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.PostMapping
 import com.root.inmobiliaria.validator.UserValidator
 import org.springframework.beans.factory.annotation.Autowired
 import com.root.inmobiliaria.service.auth.interfaces.SecurityService
 import com.root.inmobiliaria.service.auth.interfaces.UserService
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.*
+import java.security.Principal
 import javax.validation.Valid
 
 
@@ -64,9 +63,8 @@ class UserController {
 
         return "client/client-login"
     }
-    /*
-    @GetMapping("/", "/welcome")
-    fun welcome(model: Model): String {
-        return "welcome"
-    }*/
+    @RequestMapping("/client/dashboard", method = [RequestMethod.GET, RequestMethod.POST])
+    fun welcomeClient(model: Model) : String {
+        return "client/welcome-dashboard"
+    }
 }

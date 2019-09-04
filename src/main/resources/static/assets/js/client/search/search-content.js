@@ -17,7 +17,7 @@ function changeSearchMapState(){
             e.classList.add("col-md-4");
         });
         fatherSearch.classList.remove("col-md-12");
-        fatherSearch.classList.add("col-md-8");
+        fatherSearch.classList.add("col-md-8 pr-4 pl-4");
         mapHolder.classList.remove("col-md-0");
         mapHolder.classList.add("col-md-4");
     } else {
@@ -25,7 +25,7 @@ function changeSearchMapState(){
             e.classList.remove('col-md-4');
             e.classList.add("col-md-3");
         });
-        fatherSearch.classList.remove("col-md-8");
+        fatherSearch.classList.remove("col-md-8 pr-4 pl-4");
         fatherSearch.classList.add("col-md-12");
         mapHolder.classList.remove("col-md-4");
         mapHolder.classList.add("col-md-0");

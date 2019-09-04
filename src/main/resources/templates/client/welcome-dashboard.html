@@ -11,15 +11,23 @@
 <div th:replace="client/fragments/navbar::loader"></div>
 
 <body>
-<div class="container-fluid">
+<div class="container-fluid h-100 w-100">
     <div class="row">
         <div class="col-md-3">
-            <div class="d-flex flex-column">
-
+            <div class="d-flex flex-column justify-content-center align-items-start">
+                <div class="pl-1 w-100"><h6>Profile</h6></div>
+                <div class="pl-1 w-100"><h6>Request</h6></div>
+                <div class="pl-1 w-100"><h6>Personal space</h6></div>
             </div>
         </div>
         <div class="col-md-9">
-
+            <div class="container">
+                <div class="row">
+                    <div id="client-profile" class="col-md-12 hidden"></div>
+                    <div id="client-request" class="col-md-12 hidden"></div>
+                    <div id="client-my-space" class="col-md-12 hidden"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
