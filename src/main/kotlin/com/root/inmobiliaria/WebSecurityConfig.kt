@@ -34,7 +34,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
-                .successForwardUrl("/")
+                .successForwardUrl("/dashboard")
                 .permitAll()
                 .and()
                 .logout()

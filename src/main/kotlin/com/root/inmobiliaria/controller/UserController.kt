@@ -1,6 +1,7 @@
 package com.root.inmobiliaria.controller
 
 import com.root.inmobiliaria.domain.auth.User
+import com.root.inmobiliaria.form.ClientForm
 import com.root.inmobiliaria.form.UserForm
 import com.root.inmobiliaria.service.auth.SecurityServiceImpl
 import org.springframework.ui.Model
@@ -26,6 +27,7 @@ class UserController {
 
     @Autowired
     lateinit var userValidator: UserValidator
+
 
     @GetMapping("/registration")
     fun registration(user : UserForm, model: Model): String {
@@ -63,8 +65,10 @@ class UserController {
 
         return "client/client-login"
     }
-    @RequestMapping("/client/dashboard", method = [RequestMethod.GET, RequestMethod.POST])
-    fun welcomeClient(model: Model) : String {
+    @RequestMapping("/dashboard", method = [RequestMethod.GET, RequestMethod.POST])
+    fun welcomeClient(model: Model, principal: Principal) : String {
+
+
         return "client/welcome-dashboard"
     }
 }

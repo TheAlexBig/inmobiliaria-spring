@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="client/fragments/navbar::header-files"></head>
+<head th:insert="fragments/navbar::header-files"></head>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI"></script>
 
 <body class="normal-line-height overflow-hidden">
-<div th:replace="client/fragments/navbar::loader"></div>
+<div th:replace="fragments/navbar::loader"></div>
 <!--nav bar -->
 <header id="menu-search" class="bg-light">
-    <nav th:replace="client/fragments/navbar::commun"></nav>
+    <nav th:replace="fragments/navbar::commun"></nav>
     <div class="row pr-3 pl-3 pb-2 ">
         <div class="col-md-9">
             <div class="flex-row justify-content-between">

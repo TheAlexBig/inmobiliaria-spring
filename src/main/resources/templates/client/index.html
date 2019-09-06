@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="client/fragments/navbar::header-files"></head>
+<head th:insert="fragments/navbar::header-files"></head>
 <body>
-<div th:replace="client/fragments/navbar::loader"></div>
+<div th:replace="fragments/navbar::loader"></div>
 <div class="welcome-container">
-    <nav th:replace="client/fragments/navbar::index"></nav>
+    <nav th:replace="fragments/navbar::index"></nav>
     <!-- Inner Wrapper -->
     <div class="inner-wrapper">
         <div id="carousel-holder" class="index-screen-mask">
