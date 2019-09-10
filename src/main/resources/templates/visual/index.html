@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:insert="fragments/navbar::header-files"></head>
+<head th:insert="visual/fragments/navbar::header-files"></head>
 <body>
-<div th:replace="fragments/navbar::loader"></div>
+<div th:replace="visual/fragments/navbar::loader"></div>
 <div class="welcome-container">
-    <nav th:replace="fragments/navbar::index"></nav>
+    <nav th:replace="visual/fragments/navbar::index"></nav>
     <!-- Inner Wrapper -->
     <div class="inner-wrapper">
         <div id="carousel-holder" class="index-screen-mask">
@@ -361,9 +361,9 @@
 </div>
 <br>
 
-<div th:replace="client/fragments/footer::standard-footer"></div>
+<div th:replace="visual/fragments/footer::standard-footer"></div>
 
-<div th:replace="client/fragments/footer::script-files"></div>
+<div th:replace="visual/fragments/footer::script-files"></div>
 
 <script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/client/index/visual-config.js}"></script>

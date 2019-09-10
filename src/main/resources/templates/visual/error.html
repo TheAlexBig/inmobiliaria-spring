@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/navbar::header-simple"></head>
+<head th:replace="visual/fragments/navbar::header-simple"></head>
 <header>
     <div class="bg-light pr-1 pl-1">
-        <nav th:replace="fragments/navbar::commun"></nav>
+        <nav th:replace="visual/fragments/navbar::commun"></nav>
     </div>
 </header>
 <body>
-<div th:replace="fragments/navbar::loader"></div>
+<div th:replace="visual/fragments/navbar::loader"></div>
 <div class="error">
     <div class="error__content">
         <h2 th:text="${error}"></h2>
@@ -17,8 +17,8 @@
 
     </div>
 </div>
-<div th:replace="client/fragments/footer::standard-footer"></div>
+<div th:replace="visual/fragments/footer::standard-footer"></div>
 
-<div th:replace="client/fragments/footer::script-simple"></div>
+<div th:replace="visual/fragments/footer::script-simple"></div>
 </body>
 </html>

@@ -33,7 +33,7 @@ class UserController {
     fun registration(user : UserForm, model: Model): String {
         model.addAttribute("userForm", user)
 
-        return "client/client-registration"
+        return "visual/visual-registration"
     }
 
     @PostMapping("/registration")
@@ -47,7 +47,7 @@ class UserController {
         userValidator.validate(userForm, bindingResult)
 
         if (bindingResult.hasErrors()) {
-            return "client/client-registration"
+            return "visual/visual-registration"
         }
         userService.save(user)
         securityService.autoLogin(userForm.username, userForm.password)
@@ -63,12 +63,10 @@ class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.")
 
-        return "client/client-login"
+        return "visual/visual-login"
     }
     @RequestMapping("/dashboard", method = [RequestMethod.GET, RequestMethod.POST])
     fun welcomeClient(model: Model, principal: Principal) : String {
-
-
-        return "client/welcome-dashboard"
+        return "dashboard/index"
     }
 }

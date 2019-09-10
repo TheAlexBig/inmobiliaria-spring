@@ -14,9 +14,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
-@ComponentScan(value = ["com.root.inmobiliaria.service", "com.root.inmobiliaria.repositories"])
-@Configuration
 @EnableWebSecurity
+@Configuration
+@ComponentScan(value = ["com.root.inmobiliaria.service", "com.root.inmobiliaria.repositories"])
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
     @Autowired
@@ -27,9 +27,9 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
         http
                 .authorizeRequests()
                 .antMatchers("assets/js/**","assets/css/**", "/" ).permitAll()
-                .antMatchers("/client/dashboard").hasRole("client")
-                .antMatchers("/enterprise/dashboard").hasRole("enterprise")
-                .antMatchers("/admin/dashboard").hasRole("admin")
+                //.antMatchers("/visual/dashboard").hasRole("client")
+                //.antMatchers("/enterprise/dashboard").hasRole("enterprise")
+                //.antMatchers("/dashboard/dashboard").hasRole("dashboard")
                 .and()
                 .formLogin()
                 .loginPage("/login")
