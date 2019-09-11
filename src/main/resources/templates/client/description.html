@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
-<head th:insert="visual/fragments/navbar::header-files"></head>
+<head th:insert="fragments/navbar::header-files"></head>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCXeby84Czz7k7aBjHuUGw8BZEhhl-k_qI"></script>
 <script defer th:src="@{/assets/js/client/marker-with-label.js}"></script>
 
 <body>
-<div th:replace="visual/fragments/navbar::loader"></div>
+<div th:replace="fragments/navbar::loader"></div>
 <header>
     <div class="bg-light pr-1 pl-1">
-        <nav th:replace="visual/fragments/navbar::commun"></nav>
+        <nav th:replace="fragments/navbar::commun"></nav>
     </div>
 </header>
 <div class="container mt-4">
@@ -579,12 +579,12 @@
 <br>
 <br>
 
-<div th:replace="visual/fragments/footer::standard-footer"></div>
+<div th:replace="client/fragments/footer::standard-footer"></div>
 
-<div th:replace="visual/fragments/footer::script-files"></div>
+<div th:replace="client/fragments/footer::script-files"></div>
 
 <script type="text/javascript" th:src="@{/assets/js/general/slick.min.js}"></script>
 <script type="text/javascript" th:src="@{/assets/js/client/description/visual-config.js}"></script>
-<script th:replace="visual/inline/map-config-description::map-javascript"></script>
+<script th:replace="client/inline/map-config-description::map-javascript"></script>
 </body>
 </html>

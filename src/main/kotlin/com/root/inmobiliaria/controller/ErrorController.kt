@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class ErrorController : ErrorController{
 
-    @RequestMapping(value = ["/error"])
+    @RequestMapping("/error")
     fun handleError(request: HttpServletRequest, model : Model): String {
         val status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE)
         val message = request.getAttribute(RequestDispatcher.ERROR_MESSAGE)
@@ -20,13 +20,12 @@ class ErrorController : ErrorController{
         if (status != null) {
             model.addAttribute("error", Integer.valueOf(status.toString()))
             model.addAttribute("message", message)
-            return "visual/error"
+            return "client/error"
         }
-        return "visual/index"
-
+        return "client/index"
     }
 
     override fun getErrorPath(): String {
-        return "visual/error"
+        return "client/error"
     }
 }

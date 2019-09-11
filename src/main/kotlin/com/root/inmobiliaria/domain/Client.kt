@@ -13,7 +13,7 @@ import javax.persistence.Table
 
 
 @Entity(name = "client")
-@Table(name = "visual" , schema = "public")
+@Table(name = "client" , schema = "public")
 @TypeDefs(
         TypeDef(name = "int-array", typeClass = IntArrayType::class),
         TypeDef(name="jsonb", typeClass = JsonBinaryType::class)

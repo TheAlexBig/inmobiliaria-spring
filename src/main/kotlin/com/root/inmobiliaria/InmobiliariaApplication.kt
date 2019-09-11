@@ -10,9 +10,10 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
+
+@SpringBootApplication
 @EnableJpaRepositories(basePackages = ["com.root.inmobiliaria.repositories"])
 @EnableTransactionManagement
-@SpringBootApplication
 class InmobiliariaApplication
 fun main(args: Array<String>) {
     runApplication<InmobiliariaApplication>(*args)

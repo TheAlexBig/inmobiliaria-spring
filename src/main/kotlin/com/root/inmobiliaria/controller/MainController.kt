@@ -14,12 +14,12 @@ class MainController{
     @GetMapping("/")
     fun starUp(model: Model):String{
         //model.addAttribute("Quote",  quoteService.searchQuote())
-        return "visual/index"
+        return "client/index"
     }
 
     @GetMapping("/contact-us")
     fun contact(model: Model): String{
-        return "visual/contact-us"
+        return "client/contact-us"
     }
 
     @RequestMapping("/search", method = [RequestMethod.POST, RequestMethod.GET])
@@ -36,7 +36,7 @@ class MainController{
 
         model.addAttribute("location", location)
         model.addAttribute("points", points.toList())
-        return "visual/search"
+        return "client/search"
     }
 
     @RequestMapping("/description", method = [RequestMethod.GET,RequestMethod.POST])
@@ -53,7 +53,7 @@ class MainController{
 
         model.addAttribute("location", location)
         model.addAttribute("points", points.toList())
-        return "visual/description"
+        return "client/description"
     }
 
 
