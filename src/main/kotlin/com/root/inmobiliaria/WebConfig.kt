@@ -36,7 +36,6 @@ class WebConfig: WebMvcConfigurer {
     }
 
 
-/*
     @Bean
     fun templateEngine(): SpringTemplateEngine {
         val templateEngine = SpringTemplateEngine()
@@ -58,5 +57,5 @@ class WebConfig: WebMvcConfigurer {
         val viewResolver = ThymeleafViewResolver()
         viewResolver.templateEngine = templateEngine()
         return viewResolver
-    }*/
+    }
 }

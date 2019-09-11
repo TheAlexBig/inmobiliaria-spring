@@ -27,7 +27,7 @@ class UserDetailsServiceImpl : UserDetailsService{
         val grantedAuthorities = HashSet<GrantedAuthority>()
         if(user.isPresent){
             if(user.get().accountType==1) {
-                grantedAuthorities.add(SimpleGrantedAuthority("client"))
+                grantedAuthorities.add(SimpleGrantedAuthority("visual"))
             }
             return org.springframework.security.core.userdetails.User(user.get().username, user.get().password, grantedAuthorities)
         }

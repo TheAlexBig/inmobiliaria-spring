@@ -27,7 +27,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
         http
                 .authorizeRequests()
                 .antMatchers("assets/js/**","assets/css/**", "/" ).permitAll()
-                //.antMatchers("/visual/dashboard").hasRole("client")
+                //.antMatchers("/visual/dashboard").hasRole("visual")
                 //.antMatchers("/enterprise/dashboard").hasRole("enterprise")
                 //.antMatchers("/dashboard/dashboard").hasRole("dashboard")
                 .and()
