@@ -326,6 +326,13 @@ ul#menu-top-index> li:last-child  {
     transform: scale(1.3);
     transform-origin: 50% 50%;
 }
+.card div .not-trans{
+    transition: none;
+}
+
+.card:hover div .not-trans{
+    transform: scale(1.0);
+}
 .text-center-select {
     text-align: center;
     text-align-last: center;

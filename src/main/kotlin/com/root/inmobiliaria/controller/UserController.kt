@@ -1,19 +1,18 @@
 package com.root.inmobiliaria.controller
 
 import com.root.inmobiliaria.domain.auth.User
+import com.root.inmobiliaria.form.ProfileForm
 import com.root.inmobiliaria.form.UserForm
 import com.root.inmobiliaria.service.auth.SecurityServiceImpl
 import org.springframework.ui.Model
-import org.thymeleaf.spring5.util.FieldUtils.hasErrors
 import org.springframework.validation.BindingResult
 import com.root.inmobiliaria.validator.UserValidator
 import org.springframework.beans.factory.annotation.Autowired
-import com.root.inmobiliaria.service.auth.interfaces.SecurityService
 import com.root.inmobiliaria.service.auth.interfaces.UserService
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
-import java.security.Principal
 import javax.validation.Valid
+
 
 
 @Controller
@@ -27,16 +26,17 @@ class UserController {
     @Autowired
     lateinit var userValidator: UserValidator
 
+
     @GetMapping("/registration")
     fun registration(user : UserForm, model: Model): String {
         model.addAttribute("userForm", user)
 
-        return "client/client-registration"
+        return "client/registration"
     }
 
     @PostMapping("/registration")
-    fun registration(@Valid @ModelAttribute("userForm") userForm: UserForm,
-                     bindingResult: BindingResult): String {
+    fun registration(@Valid @ModelAttribute("userForm") userForm: UserForm, profile : ProfileForm,
+                     bindingResult: BindingResult, model : Model): String {
         val user = User()
         user.password = userForm.password
         user.username = userForm.username
@@ -45,12 +45,15 @@ class UserController {
         userValidator.validate(userForm, bindingResult)
 
         if (bindingResult.hasErrors()) {
-            return "client/client-registration"
+            return "client/registration"
         }
         userService.save(user)
         securityService.autoLogin(userForm.username, userForm.password)
 
-        return "redirect:/"
+        model.addAttribute("user", user)
+        model.addAttribute("profileForm", profile)
+        return "client/dashboard"
+
     }
 
     @GetMapping("/login")
@@ -61,10 +64,22 @@ class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.")
 
-        return "client/client-login"
+        return "client/login"
     }
-    @RequestMapping("/client/dashboard", method = [RequestMethod.GET, RequestMethod.POST])
-    fun welcomeClient(model: Model) : String {
-        return "client/welcome-dashboard"
+
+    @RequestMapping("/dashboard", method = [RequestMethod.POST, RequestMethod.GET])
+    fun welcomeClient(profile : ProfileForm, model: Model): String {
+
+        val username = securityService.findLoggedInUsername()
+
+        if(username !="not-found"){
+            val result = userService.findByUsername(username)
+            if(result.isPresent){
+                model.addAttribute("user", result.get())
+                model.addAttribute("profileForm", profile)
+                return "client/dashboard"
+            }
+        }
+        return "redirect:/login"
     }
 }

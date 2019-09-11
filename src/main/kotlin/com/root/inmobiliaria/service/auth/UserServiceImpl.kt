@@ -13,6 +13,7 @@ import java.util.*
 class UserServiceImpl : UserService{
 
 
+
     @Autowired
     lateinit var userRepository: UserRepository
     @Autowired
@@ -29,5 +30,9 @@ class UserServiceImpl : UserService{
 
     override fun findByUsernameOrEmail(username: String, email: String): Optional<User> {
         return userRepository.findByUsernameOrEmail(username, email)
+    }
+
+    override fun findByEmail(email: String): Optional<User> {
+        return userRepository.findByEmail(email)
     }
 }

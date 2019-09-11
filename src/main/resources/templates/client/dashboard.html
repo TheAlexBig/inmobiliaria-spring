@@ -2,35 +2,81 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="client/fragments/navbar::header-simple"></head>
-<header>
-    <div class="bg-light pr-1 pl-1">
-        <nav th:replace="client/fragments/navbar::commun"></nav>
-    </div>
-</header>
 <body>
 <div th:replace="client/fragments/navbar::loader"></div>
 
-<body>
 <div class="container-fluid h-100 w-100">
     <div class="row">
-        <div class="col-md-3">
-            <div class="d-flex flex-column justify-content-center align-items-start">
-                <div class="pl-1 w-100"><h6>Profile</h6></div>
-                <div class="pl-1 w-100"><h6>Request</h6></div>
-                <div class="pl-1 w-100"><h6>Personal space</h6></div>
-            </div>
+        <div class="col-md-2 pr-0 pl-0 bg-dark">
+            <div th:replace="client/fragments/dashboard::client"></div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10 pl-0">
+            <div class="bg-light pr-1 pl-1 bg-dark">
+                <nav th:replace="client/fragments/navbar::dashboard"></nav>
+            </div>
             <div class="container">
-                <div class="row">
-                    <div id="client-profile" class="col-md-12 hidden">
+                <form class="card col pr-5 pl-5 pb-2 pt-2" method="POST" th:object="${profileForm}"
+                      th:action="@{/dashboard}">
+                    <h4 class="title mt-3">Información de perfil personal</h4>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6 d-flex flex-column">
+                                    <img class="d-block w-25 salesman-face not-trans" th:src="@{/assets/img/avatar1.jpg}"
+                                         th:alt="Name">
+                                    <div class="custom-file w-100 mt-2">
+                                        <input type="file" class="custom-file-input"
+                                                                          id="customFile"><label
+                                            class="custom-file-label" for="customFile">Elige una foto...</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group col-md-12 mb-2">
+                                            <div id="client-my-space" class="col-md-12 hidden"></div>
+                                            <label for="names">Nombres</label>
+                                            <input th:field="*{names}" type="text" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('names')} ? 'has-error':''"
+                                                   id="names" placeholder="Nombres">
+                                        </div>
+                                        <div class="form-group col-md-12 mb-2">
+                                            <label for="lastName">Apellidos</label>
+                                            <input th:field="*{lastName}" type="text" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('lastName')} ? 'has-error':''"
+                                                   id="lastName" placeholder="Apellidos">
+                                        </div>
+                                        <div class="form-group col-md-12 mb-2">
+                                            <label for="contactPhone">Número de contacto</label>
+                                            <input th:field="*{phone}" type="text" class="form-control"
+                                                   th:classappend="${#fields.hasErrors('phone')} ? 'has-error':''"
+                                                   id="contactPhone" placeholder="Número de contacto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 mb-2">
+                            <label for="documentName">Nombre del documento</label>
+                            <input th:field="*{documentName}" type="text" class="form-control"
+                                   th:classappend="${#fields.hasErrors('documentName')} ? 'has-error':''"
+                                   id="documentName" placeholder="Nombre del documento">
+                        </div>
+                        <div class="form-group col-md-8 mb-2">
+                            <label for="document">Dato del documento</label>
+                            <input th:field="*{document}" type="text" class="form-control"
+                                   th:classappend="${#fields.hasErrors('document')} ? 'has-error':''"
+                                   id="document" placeholder="Dato del documento">
+
+                        </div>
+                        <div class="form-group col-md-12">
+                            <button class="btn btn-primary mt-2 mb-2">Actualizar información</button>
+                        </div>
                     </div>
-                    <div id="client-request" class="col-md-12 hidden"></div>
-                    <div id="client-my-space" class="col-md-12 hidden"></div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 

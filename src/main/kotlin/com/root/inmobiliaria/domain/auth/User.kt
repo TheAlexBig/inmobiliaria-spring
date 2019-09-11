@@ -1,5 +1,6 @@
 package com.root.inmobiliaria.domain.auth
 
+import com.root.inmobiliaria.domain.Profile
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType
 import org.hibernate.annotations.TypeDef
 import org.hibernate.annotations.TypeDefs
@@ -18,52 +19,55 @@ import java.util.*
     )
 data class User (
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type="pg-uuid")
-    @Column(name = "u_code",  insertable=false)
-    var code: UUID? = null,
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        @Type(type = "pg-uuid")
+        @Column(name = "u_code", insertable = false)
+        var code: UUID? = null,
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_u_id_seq")
-    @SequenceGenerator(sequenceName = "user_u_id_seq",  name = "user_u_id_seq", initialValue = 1, allocationSize = 1)
-    @Column(name= "u_id")
-    var id : Int? = null,
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_u_id_seq")
+        @SequenceGenerator(sequenceName = "user_u_id_seq", name = "user_u_id_seq", initialValue = 1, allocationSize = 1)
+        @Column(name = "u_id", insertable = false)
+        var localId: Int? = null,
 
         @Column(name = "u_email")
-    var email: String = "",
+        var email: String = "",
 
         @Column(name = "u_username")
-    var username: String = "",
+        var username: String = "",
 
         @Column(name = "u_password")
-    var password: String = "",
+        var password: String = "",
 
         @Column(name = "u_account_type")
-    var accountType : Int = 1,
+        var accountType: Int = 1,
 
 
         @Column(name = "u_token_verification")
-    var tokenVerify : String = "",
+        var tokenVerify: String = "",
 
         @Column(name = "u_token_reset")
-    var tokenReset : String = "",
+        var tokenReset: String = "",
 
-        @Type( type = "int-array" )
+        @Type(type = "int-array")
         @Column(name = "u_favorites", columnDefinition = "integer[]")
-    var favorites : IntArray = intArrayOf(),
+        var favorites: IntArray = intArrayOf(),
 
-        @Type( type = "int-array" )
-        @Column(name = "u_unliked", columnDefinition = "integer[]")
-    var unliked : IntArray = intArrayOf(),
+        @Type(type = "int-array")
+        @Column(name = "u_not_liked", columnDefinition = "integer[]")
+        var unliked: IntArray = intArrayOf(),
 
         @Column(name = "u_active")
-    var active : Boolean = true,
+        var active: Boolean = true,
 
-        @Column(name = "u_date_created",  insertable=false)
-    var dateCreated : String = "",
+        @Column(name = "u_date_created", insertable = false)
+        var dateCreated: String = "",
 
         @Column(name = "u_last_updated")
-    var lastUpdated : Int = 1
+        var lastUpdated: String? = null,
+
+        @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY, mappedBy = "user")
+        var profile : Profile ?=null
 ) : Serializable
 {
     override fun equals(other: Any?): Boolean {
