@@ -1,60 +1,32 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/navbar::header-simple"></head>
+<head th:replace="client/fragments/navbar::header-simple"></head>
 <header>
     <div class="bg-light pr-1 pl-1">
-        <nav th:replace="fragments/navbar::commun"></nav>
+        <nav th:replace="client/fragments/navbar::commun"></nav>
     </div>
 </header>
 <body>
-<div th:replace="fragments/navbar::loader"></div>
+<div th:replace="client/fragments/navbar::loader"></div>
 
 <body>
 <div class="container-fluid h-100 w-100">
     <div class="row">
         <div class="col-md-3">
             <div class="d-flex flex-column justify-content-center align-items-start">
-                <div th:replace="fragments/dashboard-menu::client"></div>
+                <div class="pl-1 w-100"><h6>Profile</h6></div>
+                <div class="pl-1 w-100"><h6>Request</h6></div>
+                <div class="pl-1 w-100"><h6>Personal space</h6></div>
             </div>
         </div>
         <div class="col-md-9">
             <div class="container">
                 <div class="row">
-                    <form id="client-profile" class="col"  method="POST" th:object="${clientForm}" th:action="@{/registration}">
-                        <div class="form-row">
-                            <div class="form-group col-md-12 mb-2">
-                                <label for="names">Nombres</label>
-                                <input th:field="*{names}" type="text" class="form-control"
-                                       th:classappend="${#fields.hasErrors('names')} ? 'has-error':''"
-                                       id="names" placeholder="Nombres">
-                            </div>
-                            <div class="form-group col-md-12 mb-2">
-                                <label for="lastnames">Apellidos</label>
-                                <input th:field="*{lastnames}" type="text" class="form-control"
-                                 th:classappend="${#fields.hasErrors('lastnames')} ? 'has-error':''"
-                                id="lastnames" placeholder="Apellidos">
-                            </div>
-                            <div class="form-group col-md-4 mb-2">
-                                <label for="documentName">Nombre del documento</label>
-                                <input th:field="*{documentName}" type="text" class="form-control"
-                                       th:classappend="${#fields.hasErrors('lastnames')} ? 'has-error':''"
-                                       id="documentName" placeholder="Nombre del documento">
-                            </div>
-                            <div class="form-group col-md-8 mb-2">
-                                <label for="document">Dato del documento</label>
-                                <input th:field="*{document}" type="text" class="form-control"
-                                       th:classappend="${#fields.hasErrors('lastnames')} ? 'has-error':''"
-                                       id="document" placeholder="Dato del documento">
-                            </div>
-                            <div class="form-group col-md-8 mb-2">
-                                <label for="contactPhone">Número de contacto</label>
-                                <input th:field="*{contactPhone}" type="text" class="form-control"
-                                       th:classappend="${#fields.hasErrors('lastnames')} ? 'has-error':''"
-                                       id="contactPhone" placeholder="Número de contacto">
-                            </div>
-                        </div>
-                    </form>
+                    <div id="client-profile" class="col-md-12 hidden">
+                    </div>
+                    <div id="client-request" class="col-md-12 hidden"></div>
+                    <div id="client-my-space" class="col-md-12 hidden"></div>
                 </div>
             </div>
         </div>

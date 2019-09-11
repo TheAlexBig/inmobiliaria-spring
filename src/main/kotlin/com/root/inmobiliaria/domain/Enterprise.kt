@@ -3,13 +3,11 @@ package com.root.inmobiliaria.domain
 import com.root.inmobiliaria.domain.auth.User
 import com.vladmihalcea.hibernate.type.array.IntArrayType
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType
-import org.hibernate.annotations.*
-import java.io.Serializable
+import org.hibernate.annotations.Type
+import org.hibernate.annotations.TypeDef
+import org.hibernate.annotations.TypeDefs
 import java.util.*
 import javax.persistence.*
-import javax.persistence.CascadeType
-import javax.persistence.Entity
-import javax.persistence.Table
 
 
 @Entity(name = "enterprise")
@@ -30,8 +28,7 @@ data class Enterprise(
         @Column(name= "e_id")
         var id : Int ? = null,
 
-        @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-        @JoinColumn(name ="u_code")
+        @Column(name = "u_code")
         var account : User?= null,
 
         @Column(name = "e_profile_photo")
@@ -52,13 +49,8 @@ data class Enterprise(
         var active : Boolean = true,
 
         @Column(name ="e_last_updated")
-        var lastUpdate : String = "Never",
+        var lastUpdate : String = "Never"
 
-        @OneToMany(fetch = FetchType.LAZY,
-                mappedBy = "enterprise")
-        var workers : Set<Client>?=null
-
-        ): Serializable
-{
+        ){
 
 }
