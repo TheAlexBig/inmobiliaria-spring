@@ -28,8 +28,9 @@ class UserController {
 
 
     @GetMapping("/registration")
-    fun registration(user : UserForm, model: Model): String {
-        model.addAttribute("userForm", user)
+    fun registration(userForm : UserForm, model: Model): String {
+
+        model.addAttribute("userForm", userForm)
 
         return "client/registration"
     }
@@ -53,7 +54,6 @@ class UserController {
         model.addAttribute("user", user)
         model.addAttribute("profileForm", profile)
         return "client/dashboard"
-
     }
 
     @GetMapping("/login")
